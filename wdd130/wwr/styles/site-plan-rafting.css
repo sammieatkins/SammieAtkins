@@ -2,29 +2,29 @@
 /* if you are using any Google fonts change the font names below to your fonts. 
 Any spaces in your font name should be replaced with a +. 
 Fonts are separated by a | */
-@import url('https://fonts.googleapis.com/css?family=IM+Fell+French+Canon+SC|Lato');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Concert+One&family=Quicksand&display=swap');
 
 :root {
   /* change the values below to your colors from your palette */
-  --primary-color: #394358 ;
-  --secondary-color: #81B29A ;
-  --accent1-color: #6C9AC2;
-  --accent2-color: #E58E76;
+  --primary-color: #334149 ;
+  --secondary-color: #35B7CB ;
+  --accent1-color: #6DC580;
+  --accent2-color: #FF9233;
 
   /* change the values below to your chosen font(s) */
-  --heading-font: "IM Fell French Canon SC";
-  --paragraph-font: Lato, Helvetica, sans-serif;
+  --heading-font: "Concert One";
+  --paragraph-font: Quicksand, Lato;
 
   /* these colors below should be chosen from among your palette colors above */
-  --headline-color-on-white: #396E94;  /* headlines on a white background */ 
-  --headline-color-on-color: white; /* headlines on a colored background */ 
-  --paragraph-color-on-white: #396E94; /* paragraph text on a white background */ 
-  --paragraph-color-on-color: white; /* paragraph text on a colored background */ 
-  --paragraph-background-color: #396E94  ;
-  --nav-link-color: #396E94;
-  --nav-background-color: #D4AC0D;
-  --nav-hover-link-color: white;
-  --nav-hover-background-color: #396E94;
+  --headline-color-on-white: #334149;  /* headlines on a white background */ 
+  --headline-color-on-color: #334149; /* headlines on a colored background */ 
+  --paragraph-color-on-white: #334149; /* paragraph text on a white background */ 
+  --paragraph-color-on-color: #334149; /* paragraph text on a colored background */ 
+  --paragraph-background-color: #6DC580;
+  --nav-link-color: #334149;
+  --nav-background-color: #35B7CB;
+  --nav-hover-link-color: #334149; 
+  --nav-hover-background-color: #FFA85C;
 }
 
 
