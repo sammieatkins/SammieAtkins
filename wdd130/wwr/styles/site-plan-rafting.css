@@ -3,7 +3,7 @@
 Any spaces in your font name should be replaced with a +. 
 Fonts are separated by a | */
 @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Concert+One&family=Quicksand&display=swap');
-
+  
 :root {
   /* change the values below to your colors from your palette */
   --primary-color: #334149 ;
@@ -23,7 +23,7 @@ Fonts are separated by a | */
   --paragraph-background-color: #6DC580;
   --nav-link-color: #334149;
   --nav-background-color: #35B7CB;
-  --nav-hover-link-color: #334149; 
+  --nav-hover-link-color: #334149;  
   --nav-hover-background-color: #FFA85C;
 }
 

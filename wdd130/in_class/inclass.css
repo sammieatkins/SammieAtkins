@@ -1,0 +1,30 @@
+body {
+    background-color: purple;
+}
+h1 {
+    color: white;
+    background-color: aqua;
+    padding: 15px 30px;
+    font-size: 3em;
+    border: 3px solid orange;
+    margin: 50px 100px 10px 300px;
+}
+h2 {
+    background-color: brown;
+    color: pink;
+}
+p {
+    width: 700px; 
+    margin: 15px auto;
+    color: aliceblue;
+}
+.thinner {
+    width:500px;
+    line-height: 1.5em;
+    background-color: teal;
+}
+#myname {
+    font-size: 3em;
+    font-family: 'Concert One', cursive;
+    font-family: 'Quicksand', sans-serif;
+}
