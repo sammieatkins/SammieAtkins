@@ -11,35 +11,50 @@ if evening.lower() == "study":
         next_shop = input("After you finish up at The Three Broomsticks, you decide you have time to check out one more shop. Do you go to ZONKO’S Joke Shop or HONEYDUKES Sweetshop? ")
         # Choice 1.1.1.1 - ZONKO'S.
         if next_shop.lower() == "zonko's":
-            print("")
+            hermione = input("Hermione finds Fred and George testing on first years. Do you let her FREAK OUT on them or try and drag her back to the CASTLE? ")
+            # Choice 1.1.1.1.1 - FREAK OUT. 
+            if hermione.lower() == "freak out":
+                print("While Hermione is telling off Fred and George, you sneak away and buy candy since you know she’ll be in no mood to watch you shop after this. ")
+            # Choice 1.1.1.1.2 - CASTLE. 
+            if hermione.lower() == "castle":
+                print("She stomps off in a huff and spends the rest of the weekend in the library. Turns out it was no use anyways because she still reported them. Fred and George appreciate your efforts, but they’re no help with your homework.")
         # Choice 1.1.1.2 - HONEYDUKES. 
         if next_shop.lower() == "honeydukes":
-            print("")
+            candy = input("You arrive at Honeydukes, do you want to buy Bertie Bott’s Every Flavor BEANS or Chocolate FROGS? ")
+            # Choice 1.1.1.2.1
+            if candy.lower() == "beans":
+                print("Eeeeeeew!! You get dog food :(. Ron thinks it’s hilarious though.")
+            # Choice 1.1.1.2.2
+            if candy.lower() == "frogs":
+                print("Woohoo!! Ron finds the Agrippa chocolate frog card!! What a successful day off :)")
         
     # Choice 1.1.2 - GROUNDS.
     if celebrate.lower() == "grounds":
         fight = input("While the three of you are relaxing under a tree, minding your own business, Malfoy, Crabbe, and Goyle decide to try and steal your snacks. You only have time for one spell. Do you use EXPELLIARMUS or ACCIO? ")
         # Should one of these end in losing the snacks?
-        # Choice 1.1.2.1
+        # Choice 1.1.2.1 - EXPELLIARMUS.
         if fight.lower() == "expelliarmus":
             print("Success!! You’ve stolen Malfoy’s wand. Goyle fights you for it and gives it back to Malfoy. At this point you’ve gotten the attention of the people around you and Malfoy realizes he’s lost this round. They meander back to the castle, bullying some first years as they go.")
-        # Choice 1.1.2.2
+        # Choice 1.1.2.2 - ACCIO.
         if fight.lower() == "accio":
-            print("Crabbe and Goyle have stolen your snacks, but luckily you’re just as fast and snatch them right back using accio. Unfortunately, that gave them the same idea. You go back and forth with accio until Hermione steps in and uses the protego charm to stop them from getting the snacks again. What would you do without her :) ")
-        # Hidden choice 1.1.2.3
+            print("Crabbe and Goyle have stolen your treacle tart!! You think better of using accio because you’ve underestimated the speed at which they can consume food and you no longer want it back. Better luck next time :(")
+        # Hidden choice 1.1.2.3 - STUPEFY.
         if fight.lower() == "stupefy":
             print("All three of you think of the same spell: stupefy! The poor slytherins didn’t have a chance. You send their limp bodies flying down the hill so you can continue enjoying your evening, and your snacks :)")
-        # Hidden Choice 1.1.2.4
+        # Hidden Choice 1.1.2.4 - PETRIFICUS TOTALUS.
         if fight.lower() == "petrificus totalus":
             print("You catch Malfoy right as he’s about to snatch your Bertie Bott’s Every Flavor Beans. Now stiff as a board lying face first in the dirt, Crabbe and Goyle drag him all the way back to the castle. They would perform the counter curse, but they don’t know how. You, Ron, and Hermione can’t stop laughing :) ")
 
     # Choice 1.1.3 - HAGRID.
     if celebrate.lower() == "hagrid":
         # change name of hagrid variable to match question.
-        hagrid = input("You each fill Hagrid in on your test scores and he’s so happy for you all. He rewards you with three rock cakes each. ")
-        # Choice 1.1.3.1
-
-        # Choice 1.1.3.2
+        hagrid = input("You each fill Hagrid in on your test scores and he’s so happy for you all. He rewards you with three rock cakes each. Professor Umbridge shows up to give Hagrid his teaching review while you’re there. Do you hide in the forbidden FOREST or make a mad dash back to the CASTLE under the invisibility cloak? ")
+        # Choice 1.1.3.1 - FOREST.
+        if hagrid.lower == "forest":
+            print("After what feels like forever, you see Professor Umbridge make her way back to the castle. You decide to go back to Hagrid’s hut to comfort him. Hermione makes him tea while Ron pats him awkwardly on the elbow.")
+        # Choice 1.1.3.2 - CASTLE.
+        if hagrid.lower() == "castle":
+            print("You make it inside, but are immediately caught by Mrs. Norris. Filch is not far away of course, and the invisibility cloak doesn’t fit the three of you like it used to. You’re caught and Professor McGonagall puts you in detention. :(")
 
 # Choice 1.2 - QUIDDITCH. 
 if evening.lower() == "quidditch":
@@ -56,10 +71,10 @@ if evening.lower() == "quidditch":
     # Choice 1.2.2 - HOMEWORK.
     if hospital_wing.lower() == "homework":
         # CHANGE QUESTION FOR CHO CHANG. 
-        cho_chang = input("Your efforts soften Hermione and she decides to help you study. It pays off!! You do so well in your charms exam that you catch the attention of Cho Chang ;) When you see her again in the next D.A. meeting, do you go TALK to her or ADMIRE her from afar? ")
-        # Choice 1.2.2.1
-        if cho_chang.lower() == "talk":
-            print("")
-        # Choice 1.2.2.2
-        if cho_chang.lower() == "admire":
-            print("")
+        ravenclaw_game = input("Your efforts soften Hermione and she decides to help you study. It pays off!! You’re now caught up on your homework and it’s good to have Hermione back. You recover just in time for the quidditch match against Ravenclaw. Do you start searching for the snitch on the LEFT or RIGHT side of the quidditch pitch? ")
+        # Choice 1.2.2.1 - LEFT.
+        if ravenclaw_game.lower() == "left":
+            print("Crunch!! You get clobbered by another bludger and end up in the hospital wing again. You just can’t catch a break, can you? ")
+        # Choice 1.2.2.2 - RIGHT.
+        if ravenclaw_game.lower() == "right":
+            print("You see the snitch dancing around Cho Chang’s head. You dive towards her and catch it!! Gryffindor wins!! After the game she tells you she’s impressed with your flying. ;)")
