@@ -1,0 +1,33 @@
+.paragraph {
+    margin: 20px, 50px, 20px, 50px;
+}
+
+.world {
+font-size: 3em;
+background-color: blue;
+color: white;
+text-align: center;
+}
+
+.bird {
+    float: right;
+    width: 350px;
+    padding: 15px;
+}
+
+.section {
+    margin: 50px;
+    background-color: rgb(173, 173, 173);
+    border: 2px, black;
+    color: rgb(169, 75, 169);
+    float: right;
+    border-radius: 25px;
+    align-content: center;
+    padding: 15px;
+}
+
+.image_name {
+    color: orange;
+    padding: 15px;
+}
+
