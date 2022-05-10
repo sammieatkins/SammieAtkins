@@ -1,3 +1,3 @@
-# Change the word for above and beyond
+# Randomize word for above and beyond
 
 secret = "goose"
