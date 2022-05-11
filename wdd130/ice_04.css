@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Padauk&family=Tinos&display=swap');
+
+.nelson{
+    width: 200px;
+}
+
+body{
+    background-color: #FCA6C9;
+    width: 30%;
+    margin: auto;
+    text-align: center;
+}
+
+p{
+    float: middle;
+    color: white;
+    font: Tinos, Helvetica, sans-serif;
+}
+
+h1{
+    color: white;
+    font: "Padauk", serif;
+    text-align: center;
+}
+
+h1:hover {
+    color: black;
+}
+
+h2{
+    color: white;
+    font: "Padauk";
+    text-align: center;
+}
+
+.edu {
+    color: black;
+    font: "Padauk";
+}
+
+h4{
+    color: white;
+    font: "Padauk";
+    text-align: center;
+}
+
+.list{
+    padding: 20px;
+    text-align: left;
+}
+
+.reference{
+    color: black;
+    font: "Padauk";
+}
