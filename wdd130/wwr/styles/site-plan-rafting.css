@@ -7,9 +7,9 @@ Fonts are separated by a | */
 :root {
   /* change the values below to your colors from your palette */
   --primary-color: #334149 ;
-  --secondary-color: #35B7CB ;
+  --secondary-color: #54c9db ;
   --accent1-color: #6DC580;
-  --accent2-color: #FF9233;
+  --accent2-color: #f49c50;
 
   /* change the values below to your chosen font(s) */
   --heading-font: "Concert One";
@@ -22,9 +22,9 @@ Fonts are separated by a | */
   --paragraph-color-on-color: #334149; /* paragraph text on a colored background */ 
   --paragraph-background-color: #6DC580;
   --nav-link-color: #334149;
-  --nav-background-color: #35B7CB;
+  --nav-background-color: #54c9db;
   --nav-hover-link-color: #334149;  
-  --nav-hover-background-color: #FFA85C;
+  --nav-hover-background-color: #f49c50;
 }
 
 
