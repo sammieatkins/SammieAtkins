@@ -81,19 +81,16 @@ footer a {
     color: bisque;
     text-decoration: none;
 }
-h2 {
-    color: #916d41;
-}
-
 footer a:hover {
     color: bisque;
 }
-
 h4 {
     color: #916d41;
 }
-
 .home-title {
+    color: #916d41;
+}
+h2 {
     color: #916d41;
 }
 
