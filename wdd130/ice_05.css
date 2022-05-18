@@ -1,0 +1,46 @@
+body{
+    background: gray;
+    margin: 0px;
+   
+}
+#hero{
+    width:100%;
+}
+main{
+    grid-template-columns: 40px 2fr 2fr 2fr 40px;
+    grid-template-rows: 1fr;
+    display: grid;
+    /* margin: 0 2%; */
+    grid-row-gap: 2em;
+    gap: 2em;
+    padding: 35px 55px;
+}
+.centered {
+    font-size: 70px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+.circle{
+    border-radius: 50%;
+    width: 60%;
+    grid-row: 2;
+    border: solid rgb(56, 56, 56) 15px;
+    /* margin: 10%; */
+    justify-self: center;    
+}
+#desk{
+    grid-column: 2;
+}
+#graphic{
+    grid-column: 3;
+}
+#person{
+    grid-column: 4;
+}
+
+/* #main-grid{
+    display:grid;
+    padding: 10px 10px;
+} */
