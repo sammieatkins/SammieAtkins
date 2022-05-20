@@ -4,6 +4,7 @@ groceries_price = []
 item = ""
 item_price = -1
 total = 0
+user_remove = None
 
 while choice != "5":
     # Menu.
@@ -40,27 +41,35 @@ while choice != "5":
 # FIX AHHH: Needs to have catch for if they enter a number bigger than the list. 
     # CHOICE 3: Remove an item.
     elif choice == "3":
-        remove = int(input("Which item would you like to remove? "))          
-        index_remove = remove - 1
+        while user_remove != -1:
+            print("Which item would you like to remove?")
+            print()
+            print("The contents of your shopping cart are:")
+            for i in range(len(groceries)):
+                item = groceries[i]
+                price = groceries_price[i]
+                print(f"{i + 1}. {item.title()} - ${price:.2f}")
+            print()           
 
-        #test
-        # print(len(groceries))
+            user_remove = int(input("Enter item number here: (-1 to return to menu) "))      
+            # can put -1 at end of input statement instead of:
+            index_remove = user_remove - 1
 
-        if remove > len(groceries):
-            print("Sorry, that is not a valid item number. ")
-        else:
-            confirm_remove = input(f"Are you sure you want to remove {remove} from your shopping list (y/n)? ")
-            if confirm_remove.lower() == "y":
-                groceries.pop(index_remove)
-                groceries_price.pop(index_remove)
-                # Link name of item in confirmation message- "Item {item} has been removed."
-                print(f"Item has been removed.")
+            if user_remove > len(groceries):
+                print("Sorry, that is not a valid item number. ")
+            elif user_remove < -1:
+                print("Sorry, that is not a valid item number. ")  
+            elif user_remove == -1:
+                break
             else:
-                print()
-
-        #test
-        # print(len(groceries))
-
+                confirm_remove = input(f"Are you sure you want to remove {user_remove} from your shopping list (y/n)? ")
+                if confirm_remove.lower() == "y":
+                    removed_item = groceries.pop(index_remove)
+                    groceries_price.pop(index_remove)
+                    print(f"{removed_item.title()} has been removed.")
+                    break
+                else:
+                    print()
         print()
 
     # CHOICE 4: Compute total. 
@@ -80,7 +89,4 @@ while choice != "5":
 print("Thank you. Goodbye.")
 print()
 
-# testing purposes.
-# print(groceries)
-# print(groceries_price)
 
