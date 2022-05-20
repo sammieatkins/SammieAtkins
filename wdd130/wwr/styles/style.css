@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Concert+One&family=Quicksand&display=swap');
+
+:root{
+    --heading-font: "Concert One";
+    --paragraph-font: Quicksand, Lato;
+}
+
+body {
+    background-color: rgb(251, 243, 235);
+    font-family: var(--paragraph-font);
+}
 #content {
     max-width: 1600px;
     margin: 0 auto;
@@ -23,9 +34,11 @@ nav a:hover {
 }
 #hero-msg h1 {
     text-align: center;
+    font-family: var(--heading-font);
 }
 #hero-msg h4 {
     text-align: center;
+    font-family: var(--heading-font);
 }
 .button-box {
     text-align: center;
@@ -35,10 +48,6 @@ main {
 }
 #background {
     height: 725px;
-
-}
-body {
-background-color: rgb(251, 243, 235);
 }
 header {
     background-color: #6f9d67;
@@ -64,6 +73,7 @@ header {
 }
 .msg h2 {
     color: bisque;
+    font-family: var(--heading-font);
 }
 .msg p {
     color: bisque;
@@ -73,9 +83,11 @@ footer {
 }
 footer h3 {
     color: bisque;
+    font-family: var(--heading-font);
 }
 footer h3 a:hover {
     text-decoration: underline;
+    font-family: var(--heading-font);
 }
 footer a {
     color: bisque;
@@ -86,11 +98,13 @@ footer a:hover {
 }
 h4 {
     color: #916d41;
+    font-family: var(--heading-font);
 }
 .home-title {
     color: #916d41;
 }
 h2 {
     color: #916d41;
+    font-family: var(--heading-font);
 }
 
