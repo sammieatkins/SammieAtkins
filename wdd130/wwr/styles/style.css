@@ -6,8 +6,17 @@
 }
 
 body {
-    background-color: rgb(251, 243, 235);
+    background-color: bisque;
     font-family: var(--paragraph-font);
+    font-size: 22px;
+    margin: 0;
+    padding: 0;
+}
+#logo_link {
+    padding-top: 5px;
+}
+.logo {
+    width: 80px;
 }
 #content {
     max-width: 1600px;
@@ -15,6 +24,8 @@ body {
 }
 .icon {
     width: 80px;
+    height: 80px;
+    padding-top: 10px;
 }
 nav {
     text-align: center;
@@ -24,6 +35,7 @@ nav a {
     text-align: center;
     color: bisque;
     text-decoration: none;
+    padding: 35px;
 }
 nav a:hover {
     background-color: bisque;
@@ -45,31 +57,45 @@ nav a:hover {
 }
 main {
     text-align: center;
+    margin-top: 30px;
 }
 #background {
     height: 725px;
+    background-color: #916d41;
 }
 header {
-    background-color: #6f9d67;
+    background-color: #75a7b3;
 }
 .book {
-    background-color: #334149;
-    color: #916d41;
+    background-color: #916d41;
+    color: bisque;
+    font-size: 18px;
+    padding: 15px 30px;
     text-decoration: none;
+    border-radius: 5px;
 }
 .join {
     background-color: bisque;
     color: #916d41;
+    font-size: 18px;
+    padding: 15px 30px;
+    margin-top: 50px;
+    border-radius: 5px;
+    text-decoration: none;
 }
 .book:hover {
-    background-color: #76c186;
+    background-color: #75a7b3;
+    color: bisque;
 }
 .join:hover {
     background-color: #916d41;
     color: bisque;
 }
 .msg {
-    background-color: #75a7b3;
+    /* background-color: #75a7b3; */
+    background-color: #79B28E;
+    line-height: 1.5em;
+    padding: 35px;
 }
 .msg h2 {
     color: bisque;
@@ -77,9 +103,13 @@ header {
 }
 .msg p {
     color: bisque;
+    font-size: .8em;
+    padding-bottom: 15px;
 }
 footer {
-    background-color: #6f9d67;
+    background-color: #75a7b3;
+    padding: 25px 50px;
+    margin-top: 200px;
 }
 footer h3 {
     color: bisque;
@@ -102,9 +132,30 @@ h4 {
 }
 .home-title {
     color: #916d41;
+    font-size: 2em;
+    margin-top: 10px;
 }
 h2 {
     color: #916d41;
     font-family: var(--heading-font);
+    margin: 0;
 }
-
+.social img {
+    padding-top: 15px;
+}
+.rivers-card {
+    margin: 200px 0;
+}
+.camping-card {
+    margin: 200px 0;
+}
+.rapids-card {
+    margin: 200px 0;
+}
+.card-img {
+    /* border: 10px solid #916d41; */
+    border: 10px solid #79B28E;
+}
+main section img {
+    box-sizing: border-box;
+}
