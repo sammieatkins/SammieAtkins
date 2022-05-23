@@ -1,3 +1,3 @@
-with open(books.txt) as books:
+with open("books.txt") as books:
     for book in books:
-        print(book)
+        print(book.strip())
