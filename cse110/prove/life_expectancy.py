@@ -18,4 +18,5 @@ with open("life-expectancy.csv") as file:
     
 
 
-
+# max_country, max_year
+# to calculate average - keep track of COUNT of years (+=)
