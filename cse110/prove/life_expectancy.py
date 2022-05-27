@@ -43,6 +43,7 @@ elif choice == 2:
     print()
 else:
     print("That's not a menu item. Please try again.")
+    print()
 
 with open("life-expectancy.csv") as file:
     header = next(file)
