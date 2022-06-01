@@ -5,21 +5,21 @@
 def calculate_windchill(temp, speed):
     return 35.74 + 0.6215 * temp - 35.75 * speed ** 0.16 + 0.4275 * temp * speed ** 0.16
 
-    # input - temp in celcius
+    # input - temp in celsius
     # output - temp in farenheit
-def convert_celcius(celcius):
-    farenheit = celcius * 9 / 5 + 32
+def convert_celsius(celsius):
+    farenheit = celsius * 9 / 5 + 32
     # test
         # print(farenheit)
     return farenheit
 
 # Inputs.
 temperature = int(input("What is the current temperature? "))
-temp_unit = input("Farenheit or Celcius (F/C)? ")
+temp_unit = input("Farenheit or celsius (F/C)? ")
 
 # Calculations.
 if temp_unit.lower() == "c":
-    temperature = convert_celcius(temperature)
+    temperature = convert_celsius(temperature)
 for wind_speed in range(5, 61, 5):
     windchill = calculate_windchill(temperature, wind_speed)
     print(f"At temperature {temperature:.1f}, and wind speed {wind_speed}, the windchill is: {windchill:.2f}F")
@@ -70,15 +70,15 @@ for wind_speed in range(5, 61, 5):
 #         windchill = 35.74 + 0.6215 * temp - 35.75 * wind_speed ** 0.16 + 0.4275 * temp * wind_speed ** 0.16
 #         return windchill
 
-# # farenheit to celcius!! don't need to convert back to celcius
-# def degree(celcius):
-#     celcius = windchill * 9 / 5 + 32
+# # farenheit to celsius!! don't need to convert back to celsius
+# def degree(celsius):
+#     celsius = windchill * 9 / 5 + 32
 
 # # Inputs.
 # temp = float(input("What is the temperature? "))
-# degree_system = input("Farenheit or Celcius (F/C)? ")
+# degree_system = input("Farenheit or celsius (F/C)? ")
 # if degree_system.lower() == "c":
-#     celcius = degree_system
+#     celsius = degree_system
 
 
 # # Using functions.
