@@ -1,0 +1,35 @@
+body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: #CFCFCF;
+}
+#content {
+    border-radius: 20px;
+    background-color: white;
+    grid-column: 2/3;
+}
+#header-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+/* .time {
+    background-color: #031E3A;
+} */
+#div-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.logo {
+    grid-column: 1/2;
+}
+/* #name {
+    
+} */
+footer {
+    float: center;
+}
+#flight {
+    grid-column: 1/-1;
+    background-color: #031E3A;
+}
