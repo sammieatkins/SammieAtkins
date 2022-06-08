@@ -27,3 +27,9 @@ time = 2 * math.pi * square_root
 
 # display
 print(f"Time (seconds): {time:.2f}")
+
+a = 1
+b = 3
+c = -2
+result = a + b * 7 % 4 - c
+print(result)
