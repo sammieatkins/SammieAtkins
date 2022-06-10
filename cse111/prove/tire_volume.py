@@ -1,26 +1,6 @@
-"""
-Enter the width of the tire in mm (ex 205): 185
-Enter the aspect ratio of the tire (ex 60): 50
-Enter the diameter of the wheel in inches (ex 15): 14
-
-The approximate volume is 24.09 liters
-
-> python tire_volume.py
-Enter the width of the tire in mm (ex 205): 205
-Enter the aspect ratio of the tire (ex 60): 60
-Enter the diameter of the wheel in inches (ex 15): 15
-
-The approximate volume is 39.92 liters
-
-v is the volume in liters,
-π is the constant PI, which is the ratio of the circumference of a circle divided by its diameter (use math.pi),
-w is the width of the tire in millimeters,
-a is the aspect ratio of the tire, and
-d is the diameter of the wheel in inches.
-
-"""
 # imports
 import math
+from datetime import datetime
 
 # inputs
 width = float(input("Enter the width of the tire in mm (ex 205): "))
@@ -31,5 +11,21 @@ diameter = float(input("Enter the diameter of the wheel in inches (ex 15): "))
     # WHaat is going on here - DONT USE COMMAS TO SEPARATE BIG NUMBERS
 volume = (math.pi * width ** 2 * aspect_ratio * (width * aspect_ratio + 2540 * diameter)) / 10000000000
 
+# current date
+today = datetime.now()
+
 # display
 print(f"The approximate volume is {volume:.2f} liters. ")
+
+# phone number
+ask_buy = input("Would you like to buy tires with these dimensions (yes/no)? ")
+
+if ask_buy.lower() == "yes":
+    phone_number = input("Please enter your phone number (123-456-7890: ")
+
+# add to volumes.txt
+with open("volumes.txt", "at") as volumes_file:
+    if ask_buy.lower() == "yes":
+        print(f"{today:%Y-%m-%d},{width},{aspect_ratio},{diameter},{volume:.2f},{phone_number}", file=volumes_file)
+    else:
+        print(f"{today:%Y-%m-%d},{width},{aspect_ratio},{diameter},{volume:.2f}", file=volumes_file)
