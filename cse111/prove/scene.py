@@ -1,13 +1,11 @@
 # Import the functions from the Draw 2-D library
 # so that they can be used in this program.
+from cgi import print_arguments
 from draw2d import \
     start_drawing, draw_line, draw_oval, draw_arc, \
     draw_rectangle, draw_polygon, draw_text, finish_drawing
-import tkinter
-
 
 def main():
-    print(tkinter.TkVersion)
     # Width and height of the scene in pixels
     scene_width = 800
     scene_height = 500
@@ -18,8 +16,8 @@ def main():
 
     # Call your drawing functions such
     # as draw_sky and draw_ground here.
-        # draw_pine_tree(canvas, 550, 150, 250)
-        # draw_pine_tree(canvas, 200, 100, 200)
+    # draw_pine_tree(canvas, 550, 150, 250)
+    # draw_pine_tree(canvas, 200, 100, 200)
     draw_sky(canvas, scene_width, scene_height)
     draw_ground(canvas, scene_width, 150)
 
@@ -40,24 +38,66 @@ def main():
 def draw_sky(canvas, scene_width, scene_height):
     draw_rectangle(canvas, 0, 0, scene_width, scene_height, fill="skyBlue1")
     #cloud 1
-    draw_cloud(canvas, 150, 350, 100, 100)
-
-# def draw_clouds 
-    # make this overlap many circles to make an actual cloud :)
-
+    draw_cloud(canvas, 150, 400)
+    draw_cloud(canvas, 250, 450, 200, 200)
+    draw_cloud(canvas, 450, 350)
 
 def draw_ground(canvas, scene_width, height):
     draw_rectangle(canvas, 0, height, scene_width, 0, fill="tan4")
 
-def draw_cloud(canvas, center_x, bottom, width, height):
-    top_x = center_x - width / 2
-    top_y = bottom + height
-    bottom_x = center_x + width / 2
-    # bottom_y is bottom
+# def draw_clouds 
+    # make this overlap many circles to make an actual cloud :)
 
-    draw_oval(canvas, top_x, top_y, bottom_x, bottom, fill="white")
+# def draw_cloud(canvas, center_x, bottom, width, height):
+#     top_x = center_x - width / 2
+#     top_y = bottom + height
+#     bottom_x = center_x + width / 2
+#     # bottom_y is bottom
 
-    pass
+#     draw_oval(canvas, top_x, top_y, bottom_x, bottom, fill="white")
+
+def draw_cloud(canvas, center_x, center_y, width=100, height=100):
+    # middle circle
+    middle_width = width / 1.5
+    middle_height = height / 2
+    middle_top_x = center_x - middle_width / 2
+    middle_top_y = center_y - middle_height / 2
+    middle_bottom_x = center_x + middle_width / 2
+    middle_bottom_y = center_y + middle_height / 2
+    draw_oval(canvas, middle_top_x, middle_top_y, middle_bottom_x, middle_bottom_y, fill="white", outline="black")
+
+    # right circle
+    right_center_x = center_x + middle_width / 2
+    right_center_y = center_y - middle_height / 2
+    right_width = width / 1.5
+    right_height = height / 2
+    right_top_x = right_center_x - right_width / 2
+    right_top_y = right_center_y - right_height / 2
+    right_bottom_x = right_center_x + right_width / 2
+    right_bottom_y = right_center_y + right_height / 2
+    draw_oval(canvas, right_top_x, right_top_y, right_bottom_x, right_bottom_y, fill="white", outline="white")
+
+    # left circle
+    left_center_x = center_x - middle_width / 2
+    left_center_y = center_y - middle_height / 2
+    left_width = width / 1.5
+    left_height = height / 2
+    left_top_x = left_center_x - left_width / 2
+    left_bot_y = left_center_y - left_height / 2
+    left_bottom_x = left_center_x + left_width / 2
+    left_top_y = left_center_y + left_height / 2
+    draw_oval(canvas, left_top_x, left_bot_y, left_bottom_x, left_top_y, fill="white", outline="white")
+
+    # bottom rectangle
+    print(left_center_x)
+    print(center_y)
+    print(right_center_x)
+    print(left_top_y)
+    print(left_bot_y)
+    draw_rectangle(canvas, left_center_x, center_y, right_center_x, left_bot_y, fill="white", outline="white")
+
+
+   
 
 
 
