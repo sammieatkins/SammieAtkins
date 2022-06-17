@@ -28,7 +28,6 @@ def main():
 
     # Call the finish_drawing function in the draw2d.py library.
     finish_drawing(canvas)
-
 # SKY
 def draw_sky(canvas, scene_width, height):
     draw_rectangle(canvas, 0, 0, scene_width, height, fill="royalBlue4")
