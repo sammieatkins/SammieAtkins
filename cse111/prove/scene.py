@@ -19,7 +19,8 @@ def main():
     # Call the start_drawing function in the draw2d.py library which will open a window and create a canvas.
     canvas = start_drawing("Scene", scene_width, scene_height)
 
-    draw_sky(canvas, scene_width, scene_height)
+    # PROBLEM: !!!!!!!!!!!!!!!!!!!!!!!!
+    draw_sky(canvas, scene_width, scene_height + 50)
     draw_ground(canvas, scene_width, 50)
 
     # draw_grid(canvas, scene_width, scene_height, 50)
@@ -29,17 +30,27 @@ def main():
     finish_drawing(canvas)
 
 # SKY
-def draw_sky(canvas, scene_width, scene_height):
-    draw_rectangle(canvas, 0, 0, scene_width, scene_height, fill="royalBlue4")
-    draw_moon(canvas, 250, 375, 200, 200)
+def draw_sky(canvas, scene_width, height):
+    draw_rectangle(canvas, 0, 0, scene_width, height, fill="royalBlue4")
+    # for x in range(0, random.randrange(scene_width, height), random.randrange(5, 10, 1)):
+    #     draw_stars(canvas, , )
+    draw_moon_blue(canvas, 250, 375, 200, 200)
+    for x in range(0, scene_width, random.randrange(50, 75)):
+        for y in range(100, height, random.randrange(50, 75)):
+            draw_stars(canvas, x, random.randrange(3,5), y)
+    draw_moon_yellow(canvas, 250, 375, 200, 200)
+    draw_moon_blue(canvas, 250, 375, 200, 200)
     draw_cloud(canvas, 150, 325, 150, 150)
     draw_cloud(canvas, 200, 313, 125, 125)
     
 # GROUND
 def draw_ground(canvas, scene_width, height):
     draw_rectangle(canvas, 0, height, scene_width, 0, fill="saddleBrown", outline="saddleBrown")
-    draw_grass(canvas, scene_width, 5, 10)
     draw_pine_tree(canvas, 600, 50, 350)
+    for x in range(0, scene_width, 10):
+        draw_grass(canvas, x)
+    for x in range(0, scene_width, 20):
+        draw_grass(canvas, x, color="green")
 
 # CLOUD
 def draw_cloud(canvas, center_x, center_y, width=100, height=100):
@@ -93,7 +104,7 @@ def draw_cloud(canvas, center_x, center_y, width=100, height=100):
     draw_rectangle(canvas, left_center_x, center_y, right_center_x, left_bot_y, fill="lightSlateGray", outline="lightSlateGray")
 
 # MOON
-def draw_moon(canvas, center_x, center_y, width=150, height=150):
+def draw_moon_yellow(canvas, center_x, center_y, width=150, height=150):
     """
     Creates crescent moon by overlapping two circles. The first, a yellow circle, is overlapped by a sky-color circle. 
     Parameters:
@@ -108,35 +119,32 @@ def draw_moon(canvas, center_x, center_y, width=150, height=150):
     bot_x = center_x + width / 2
     bot_y = center_y - height / 2
     draw_oval(canvas, top_x, top_y, bot_x, bot_y, fill="gold1", outline="darkGoldenrod")
-    
+
+def draw_moon_blue(canvas, center_x, center_y, width=150, height=150):
     crescent_top_x = center_x - width / 5
     crescent_top_y = center_y + height 
     crescent_bot_x = center_x + width
     crescent_bot_y = center_y - width / 4
     draw_oval(canvas, crescent_top_x, crescent_top_y, crescent_bot_x, crescent_bot_y, fill="royalBlue4", outline="royalBlue4")
-
-    # print(top_x)
-    # print(top_y)
-    # print(bot_x)    
-    # print(bot_y)
-    # print()
-
-    print(crescent_top_x)
-    print(crescent_top_y)
-    print(crescent_bot_x)
-    print(crescent_bot_y)
  
 # GRASS
-def draw_grass(canvas, scene_width, center_x, interval, center_y=50, height=25, width=10):
+def draw_grass(canvas, center_x, center_y=50, height=25, width=10, color="darkGreen"):
     top_x = center_x
     top_y = center_y + height
     right_x = center_x + width / 2
     # right_y = center_y 
     left_x = center_x - width / 2
     # left_y = center_y
-    for i in range(0, scene_width, interval):
-        draw_polygon(canvas, top_x, top_y, right_x, center_y, left_x, center_y, fill="darkGreen", outline="darkGreen")
-        
+    draw_polygon(canvas, top_x, top_y, right_x, center_y, left_x, center_y, fill=color, outline=color)
+
+# STARS
+def draw_stars(canvas, center_x, height, center_y=300):
+    # how to make the size random?
+    top_x = center_x - height / 2
+    top_y = center_y + height / 2
+    bottom_x = center_x + height / 2
+    bottom_y = center_y - height / 2
+    draw_oval(canvas, top_x, top_y, bottom_x, bottom_y, fill="white")
 
 # PINE TREE
 def draw_pine_tree(canvas, center_x, bottom, height):
@@ -184,3 +192,13 @@ main()
 # draw_pine_tree(canvas, 200, 100, 200)
 # for x in range(100, 700, 100):
     #     draw_pine_tree(canvas, x, 250, 80)
+ # print(top_x)
+    # print(top_y)
+    # print(bot_x)    
+    # print(bot_y)
+    # print()
+
+    # print(crescent_top_x)
+    # print(crescent_top_y)
+    # print(crescent_bot_x)
+    # print(crescent_bot_y)
