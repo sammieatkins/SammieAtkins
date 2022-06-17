@@ -29,21 +29,32 @@ def main():
     # Call the finish_drawing function in the draw2d.py library.
     finish_drawing(canvas)
 # SKY
-def draw_sky(canvas, scene_width, height):
-    draw_rectangle(canvas, 0, 0, scene_width, height, fill="royalBlue4")
-    # for x in range(0, random.randrange(scene_width, height), random.randrange(5, 10, 1)):
-    #     draw_stars(canvas, , )
+def draw_sky(canvas, scene_width, scene_height):
+    draw_rectangle(canvas, 0, 0, scene_width, scene_height, fill="royalBlue4")
+
     draw_moon_blue(canvas, 250, 375, 200, 200)
-    for x in range(0, scene_width, random.randrange(50, 75)):
-        for y in range(100, height, random.randrange(50, 75)):
-            draw_stars(canvas, x, random.randrange(3,5), y)
+
+    for x in range(0, scene_width, 30):
+        for y in range(50, scene_height, random.randrange(50, 75)):
+            draw_stars(canvas, x, random.randrange(2,4), y)
+
     draw_moon_yellow(canvas, 250, 375, 200, 200)
     draw_moon_blue(canvas, 250, 375, 200, 200)
+
+    draw_cloud(canvas, 150, 325, 150, 150)
+    draw_cloud(canvas, 200, 313, 125, 125)
     draw_cloud(canvas, 150, 325, 150, 150)
     draw_cloud(canvas, 200, 313, 125, 125)
     
 # GROUND
 def draw_ground(canvas, scene_width, height):
+    """
+    Draws dirt (rectangle), grass blades, and a pine tree.
+    Parameters:
+        canvas
+        scene_width
+        height: height you want the ground to be. 
+    """
     draw_rectangle(canvas, 0, height, scene_width, 0, fill="saddleBrown", outline="saddleBrown")
     draw_pine_tree(canvas, 600, 50, 350)
     for x in range(0, scene_width, 10):
@@ -143,7 +154,7 @@ def draw_stars(canvas, center_x, height, center_y=300):
     top_y = center_y + height / 2
     bottom_x = center_x + height / 2
     bottom_y = center_y - height / 2
-    draw_oval(canvas, top_x, top_y, bottom_x, bottom_y, fill="white")
+    draw_oval(canvas, top_x, top_y, bottom_x, bottom_y, fill="gold", outline="gold")
 
 # PINE TREE
 def draw_pine_tree(canvas, center_x, bottom, height):
