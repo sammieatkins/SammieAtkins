@@ -33,18 +33,20 @@ def draw_sky(canvas, scene_width, scene_height):
     draw_rectangle(canvas, 0, 0, scene_width, scene_height, fill="royalBlue4")
 
     draw_moon_blue(canvas, 250, 375, 200, 200)
+    draw_moon_yellow(canvas, 250, 375, 200, 200)
+    draw_moon_blue(canvas, 250, 375, 200, 200)
 
     for x in range(0, scene_width, 30):
         for y in range(50, scene_height, random.randrange(50, 75)):
             draw_stars(canvas, x, random.randrange(2,4), y)
 
-    draw_moon_yellow(canvas, 250, 375, 200, 200)
-    draw_moon_blue(canvas, 250, 375, 200, 200)
-
-    draw_cloud(canvas, 150, 325, 150, 150)
-    draw_cloud(canvas, 200, 313, 125, 125)
-    draw_cloud(canvas, 150, 325, 150, 150)
-    draw_cloud(canvas, 200, 313, 125, 125)
+    # small cloud
+    draw_cloud(canvas, 150, 300, 150, 150)
+    draw_cloud(canvas, 200, 288, 125, 125)
+    
+    # big cloud
+    draw_cloud(canvas, 330, 435, 175, 175)
+    draw_cloud(canvas, 380, 422, 150, 150)
     
 # GROUND
 def draw_ground(canvas, scene_width, height):
