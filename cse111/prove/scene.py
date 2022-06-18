@@ -1,8 +1,3 @@
-"""
-percentage for arguments (?)
-how to make the width and height the actual width and height
-"""
-
 # Import the functions from the Draw 2-D library
 # so that they can be used in this program.
 from cgi import print_arguments
@@ -19,7 +14,6 @@ def main():
     # Call the start_drawing function in the draw2d.py library which will open a window and create a canvas.
     canvas = start_drawing("Scene", scene_width, scene_height)
 
-    # PROBLEM: !!!!!!!!!!!!!!!!!!!!!!!!
     draw_sky(canvas, scene_width, scene_height + 50)
     draw_ground(canvas, scene_width, 50)
 
@@ -197,20 +191,3 @@ def draw_grid(canvas, width, height, interval):
 # Call the main function so that
 # this program will start executing.
 main()
-
-
-    
-# draw_pine_tree(canvas, 550, 150, 250)
-# draw_pine_tree(canvas, 200, 100, 200)
-# for x in range(100, 700, 100):
-    #     draw_pine_tree(canvas, x, 250, 80)
- # print(top_x)
-    # print(top_y)
-    # print(bot_x)    
-    # print(bot_y)
-    # print()
-
-    # print(crescent_top_x)
-    # print(crescent_top_y)
-    # print(crescent_bot_x)
-    # print(crescent_bot_y)
