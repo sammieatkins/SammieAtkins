@@ -1,5 +1,11 @@
 import random
 
+"""
+get_sentence() function
+hard code quantity and tense above
+get_sentence function has a print statement
+"""
+
 def main():
     # determiner
     determiner_single = get_determiner(1)
