@@ -1,39 +1,31 @@
 import random
 
-"""
-get_sentence() function
-hard code quantity and tense above
-get_sentence function has a print statement
-"""
-
 def main():
-    # determiner
-    determiner_single = get_determiner(1)
-    determiner_single = determiner_single.capitalize()
-    determiner_plural = get_determiner(0)
-    determiner_plural = determiner_plural.capitalize()
-
-    # noun    
-    noun_plural = get_noun(0)
-    noun_single = get_noun(1)
-
-    # verb
-    verb_past = get_verb(quantity=0, tense="past")
-    verb_present_single = get_verb(1, "present")
-    verb_present_plural = get_verb(quantity=0, tense="present")
-    verb_future = get_verb(quantity=0, tense="future")
-
-    # single print statements
-    print(f"{determiner_single} {noun_single} {verb_past}.")
-    print(f"{determiner_single} {noun_single} {verb_present_single}.")
-    print(f"{determiner_single} {noun_single} {verb_future}.")
+    get_sentence(1, "past")   
+    get_sentence(1, "present")
+    get_sentence(1, "future")
     
-    # plural print statements
-    print(f"{determiner_plural} {noun_plural} {verb_past}.")
-    print(f"{determiner_plural} {noun_plural} {verb_present_plural}.")
-    print(f"{determiner_plural} {noun_plural} {verb_future}")
+    get_sentence(0, "past")
+    get_sentence(0, "present")
+    get_sentence(0, "future")
 
-
+def get_sentence(quantity, tense):
+    """
+    Return a random sentence.
+    Parameters:
+        quantity: an integer. 
+            if quantity == 1, it will have a singular determiner and noun
+            if quantity != 1, it will have a plural determiner and noun
+        tense: "past", "present", or "future"
+            if tense == "past", it will have a past tense verb
+            if tense == "present", it will have a present tense verb
+            if tense == "future", it will have a future tense verb 
+    """
+    determiner = get_determiner(quantity)
+    noun = get_noun(quantity)
+    verb = get_verb(quantity, tense)
+    sentence = print(f"{determiner.capitalize()} {noun} {verb}.")
+    return sentence
 
 def get_determiner(quantity):
     """Return a randomly chosen determiner. A determiner is
