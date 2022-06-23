@@ -1,6 +1,10 @@
-from sentences import get_determiner, get_noun, get_verb
+from sentences import get_determiner, get_noun, get_verb, get_preposition, get_prepositional_phrase, get_sentence
 import random
 import pytest
+
+# how to test get_sentence?
+def test_get_sentence():
+    pass
 
 def test_get_determiner():
     # 1. Test the single determiners.
@@ -63,5 +67,19 @@ def test_get_verb():
     for _ in range(20):
         word = get_verb(0, "future")
         assert word in future_verbs
-        
+
+def test_get_preposition():
+    prepositions = ["about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"]
+    for _ in range(20):
+        word = get_preposition()
+        assert word in prepositions
+
+def test_get_prepositional_phrase():
+    pass
+
 pytest.main(["-v", "--tb=line", "-rN", __file__])
