@@ -1,44 +1,23 @@
-from sentences import get_determiner, get_noun, get_verb, get_preposition, get_prepositional_phrase, get_sentence
+from sentences import get_determiner, get_noun, get_verb, get_preposition, get_prepositional_phrase, get_adjective
 import random
 import pytest
 
-# how to test get_sentence?
-def test_get_sentence():
-    pass
-
 def test_get_determiner():
-    # 1. Test the single determiners.
-
     single_determiners = ["a", "one", "the"]
-
-    # This loop will repeat the statements inside it 4 times.
-    # If a loop's counting variable is not used inside the
-    # body of the loop, many programmers will use underscore
-    # (_) as the variable name for the counting variable.
-    for _ in range(4):
-
-        # Call the get_determiner function which
-        # should return a single determiner.
+    for _ in range(20):
         word = get_determiner(1)
-
-        # Verify that the word returned from get_determiner
-        # is one of the words in the single_determiners list.
         assert word in single_determiners
 
-    # 2. Test the plural determiners.
-
     plural_determiners = ["some", "many", "the"]
-
-    # This loop will repeat the statements inside it 4 times.
-    for _ in range(4):
-
-        # Call the get_determiner function which
-        # should return a plural determiner.
+    for _ in range(20):
         word = get_determiner(0)
-
-        # Verify that the word returned from get_determiner
-        # is one of the words in the plural_determiners list.
         assert word in plural_determiners
+
+def test_get_adjective():
+    adjectives = ["charming", "cruel", "fantastic", "gentle", "huge", "perfect", "rough", "sharp", "tasty", "zealous"]
+    for _ in range(20):
+        word = get_adjective()
+        assert word in adjectives
 
 def test_get_noun():
     single_nouns = ["bird", "boy", "car", "cat", "child", "dog", "girl", "man", "rabbit", "woman"]
@@ -80,6 +59,36 @@ def test_get_preposition():
         assert word in prepositions
 
 def test_get_prepositional_phrase():
-    pass
+    # test preposition
+    prepositions = ["about", "above", "across", "after", "along",
+        "around", "at", "before", "behind", "below",
+        "beyond", "by", "despite", "except", "for",
+        "from", "in", "into", "near", "of",
+        "off", "on", "onto", "out", "over",
+        "past", "to", "under", "with", "without"]
+
+    # test noun
+    single_nouns = ["bird", "boy", "car", "cat", "child", "dog", "girl", "man", "rabbit", "woman"]
+
+    plural_nouns = ["birds", "boys", "cars", "cats", "children", "dogs", "girls", "men", "rabbits", "women"]
+    
+    # test determiner
+    single_determiners = ["a", "one", "the"]
+
+    plural_determiners = ["some", "many", "the"]
+    
+    # test prepositional phrase
+    for _ in range(20):
+        single_prep = get_prepositional_phrase(1)
+        single_prep = single_prep.split()
+        assert single_prep[0] in prepositions
+        assert single_prep[1] in single_determiners
+        assert single_prep[2] in single_nouns
+        
+        plural_prep = get_prepositional_phrase(0)
+        plural_prep = plural_prep.split()
+        assert plural_prep[0] in prepositions
+        assert plural_prep[1] in plural_determiners
+        assert plural_prep[2] in plural_nouns       
 
 pytest.main(["-v", "--tb=line", "-rN", __file__])

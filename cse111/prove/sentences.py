@@ -22,9 +22,11 @@ def get_sentence(quantity, tense):
             if tense == "future", it will have a future tense verb 
     """
     determiner = get_determiner(quantity)
+    adjective = get_adjective()
     noun = get_noun(quantity)
     verb = get_verb(quantity, tense)
-    sentence = print(f"{determiner.capitalize()} {noun} {verb}.")
+    preposition = get_prepositional_phrase(quantity)
+    sentence = print(f"{determiner.capitalize()} {adjective} {noun} {verb} {preposition}.")
     return sentence
 
 def get_determiner(quantity):
@@ -50,6 +52,15 @@ def get_determiner(quantity):
     # Randomly choose and return a determiner.
     word = random.choice(words)
     return word
+
+def get_adjective():
+    """Return a randomly chosen adjective from this list of adjectives:
+            "charming", "cruel", "fantastic", "gentle", "huge", "perfect", "rough", "sharp", "tasty", "zealous"
+    Return: a randomly chosen determiner.
+    """
+    adjectives = ["charming", "cruel", "fantastic", "gentle", "huge", "perfect", "rough", "sharp", "tasty", "zealous"]
+    adjective = random.choice(adjectives)
+    return adjective
 
 def get_noun(quantity):
     """Return a randomly chosen noun.
@@ -145,6 +156,10 @@ def get_prepositional_phrase(quantity):
             this function are single or pluaral.
     Return: a prepositional phrase.
     """
-    prep = get_preposition()
+    preposition = get_preposition()
+    noun = get_noun(quantity)
+    determiner = get_determiner(quantity)
+    prep_phrase = preposition + " " + determiner + " " + noun
+    return prep_phrase
 
 main()
