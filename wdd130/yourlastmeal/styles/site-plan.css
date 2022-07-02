@@ -112,14 +112,12 @@ nav {
 nav  {
   list-style-type: none;
   display: flex;
-
 }
 nav a {
   padding:1em;
   min-width: 120px;
   text-decoration: none;
   padding: 10px;
-
 }
 nav a:link, nav a:visited {
   color: var(--nav-link-color);

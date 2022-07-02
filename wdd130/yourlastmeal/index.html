@@ -4,56 +4,68 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- CSS link here -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <title>Your Last Meal | Home</title>
 </head>
 <body>
-   
     <header>
-        <a id= "logo_link" href="index.html">
-            <img class = "logo" src="images/logo.png" alt="Your Last Meal Logo">
-        </a>
-        <nav>
-            <a href="tips.html">Tips & Tricks</a>
-            <a href="index.html">Home</a>
-            <a href="stories.html">Personal Stories</a>
+        <div class="red">
+            <a id= "logo_link" href="index.html">
+                <img class = "logo" src="images/logo.png" alt="Your Last Meal Logo">
+            </a>
+        </div>
+        <nav class="nav_bar">
+            <a href="tips.html" class="nav_options">Tips & Tricks</a>
+            <a href="index.html" class="nav_options">Home</a>
+            <a href="stories.html" class="nav_options">Personal Stories</a>
         </nav>
     </header>
-    <div class="first_aid">
-        <h2>FIRST AID:</h2>
-        <h4>Yes, you call 911 SECOND. This is different than treatment for other emergencies. In the case of anaphylaxis, there is literally no time to waste.</h4>
-        <img src="images/anaphylaxis_first_aid.png" alt="First Aid Graphic">
-        <img src="images/AUVI-Q.png" alt="AUVI-Q">
-        <img src="images/epipens.jpeg" alt="EPIPENS">
-        <p>1) Locate and give epinephrine FIRST<br><br>
-            2) THEN call 911<br><br>
-            3) Call family/friends/emergency contacts<br><br></p>
-        
-        OTHER (optional):<br>
-        - If you think of it, make a note of when exactly you started noticing symptoms. The paramedics often ask about this when they arrive. They also may ask what caused the reaction, so make a note of what food was eaten. Keep in mind, this information isn’t necessary for treatment so it’s okay if you don’t think to keep track, but it can be useful information to have.<br>
-        - AFTER they are safe, maybe grab some comfy clothes, a blanket, a book, a charger… and anything you think your person with food allergies might like to have while they wait (potentially) 4 hours being monitored at the hospital. Trust me, it’s boring (still go though lol). <br>
-        - At the hospital - you may have to fight the doctors on this one, but in my experience it’s worth it. Recently for my last few reactions the ER doctors not only have stopped requiring a 4 hour stay to monitor for a rebound reaction, but they’ve encouraged me to leave if I’m feeling fine. I strongly suggest you advocate for staying the whole 4 hours, because it is much better to find yourself having a rebound reaction in the ER rather than having to repeat the three steps above and go through it all over again.<br> 
-    </div>
     <main>
-        <img src="images/about_me.png" alt="Sammie Atkins">
-        <h1>About Me</h1>
-        <p>I'm Samantha (Sammie) Atkins, creator of Your Last Meal. I have life-threatening food allergies to eggs, peanuts, and treenuts. I'm 21 years old, and I've had a lot of experience with allergic reactions, handling social situations with food allergies, adjusting to college, advocating for myself, etc. I created Your Last Meal as a food allergy awareness site where I could share my tips & tricks and personal stories regarding my experiences as a person with life-threatening food allergies. <br>
-        The name for this site, Your Last Meal, is meant to be a dramatic, yet comical reminder for me and all people with life-threatening food allergies that if we're not careful, any meal could be our last. Hopefully the content on this webiste can help you, or give the people you love ideas on how to help you, in your efforts to stay safe. 
-        </p>
+        <div class="first_aid">
+            <h2>FIRST AID:</h2>
+            <div class="epinephrine_images">
+                <img class="epinephrine" src="images/AUVI-Q.png" alt="AUVI-Q">
+                <img class="epinephrine" src="images/epipens.jpeg" alt="EPIPENS">
+            </div>
+            <p>
+                1) Locate and give epinephrine FIRST<br><br>
+                2) THEN call 911<br><br>
+                3) Call family/friends/emergency contacts
+            </p>
+            <h4 class="colored">Yes, you call 911 SECOND. <br>This is different than treatment for other emergencies.</h4>
+            <p id="optional">
+                <p id="other">OTHER (optional):</p>
+                <ul id="optional_bullets">
+                    <li>Keep track of when you started noticing symptoms and what you ate. Paramedics will ask for this information when they arrive. <br></li>
+                    <li>AFTER they're safe, maybe grab some comfy clothes, a blanket, a book, a charger… anything you think your person with food allergies might like to have while they wait (potentially) 4 hours being monitored at the hospital. Trust me, it’s boring (still go though lol).</li>
+                </ul>
+            </p>
+        </div>
+        <div class="about_me">
+            <h1>About Me</h1>
+            <div>
+                <img id="me" src="images/about_me.png" alt="Sammie Atkins">
+                <p>I'm Samantha (Sammie) Atkins, creator of Your Last Meal. I have life-threatening food allergies to eggs, peanuts, and treenuts. I'm 21 years old, and I've had a lot of experience with allergic reactions, handling social situations with food allergies, adjusting to college, advocating for myself, etc. I created Your Last Meal as a food allergy awareness site where I could share my tips & tricks and personal stories regarding my experiences as a person with life-threatening food allergies. <br><br>
+                The name for this site, Your Last Meal, is meant to be a dramatic, yet comical reminder for me and all people with life-threatening food allergies that if we're not careful, any meal could be our last. Hopefully the content on this webiste can help you, or give the people you love ideas on how to help you, in your efforts to stay safe. 
+                </p>
+            </div>
+        </div>
     </main>
     <footer>
-        <h6>Your Last Meal &copy; 2022 - Samantha Atkins</h6>
-        <h6><a href="site-plan.html">Site Plan</a></h6>
+        <h5>Your Last Meal &copy; 2022 - Samantha Atkins</h5>
+        <h5><a href="site-plan.html" id="site_plan_link">Site Plan</a></h5>
         <div class="social">
-            <a href="https://facebook.com" target="_blank">
-                <img src="../images/facebook.png" alt="fb icon">
+            <a href="https://facebook.com" target="_blank" class="socials">
+                <i class="fa-brands fa-facebook-square"></i>
             </a>
-            <a href="https://twitter.com" target="_blank">
-                <img src="../images/twitter.png" alt="twitter icon">
+            <a href="https://twitter.com" target="_blank" class="socials">
+                <i class="fa-brands fa-twitter-square"></i>
             </a>
-            <a href="https://instagram.com" target="_blank">
-                <img src="../images/instagram.png" alt="instagram icon">
-            </a>
+            <a href="https://instagram.com" target="_blank" class="socials">
+                <i class="fa-brands fa-instagram-square"></i>
+            </a> 
         </div>
     </footer>
 </body>
