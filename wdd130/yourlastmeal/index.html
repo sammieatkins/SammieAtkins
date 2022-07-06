@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <title>Your Last Meal | Home</title>
 </head>
-<body>
+<body id="scooch">
     <header>
         <div class="red">
             <a id= "logo_link" href="index.html">
@@ -17,13 +17,15 @@
             </a>
         </div>
         <nav class="nav_bar">
+            <a href="#" onclick="openNav()">FIRST AID</a>
             <a href="tips.html" class="nav_options">Tips & Tricks</a>
             <a href="index.html" class="nav_options">Home</a>
             <a href="stories.html" class="nav_options">Personal Stories</a>
         </nav>
     </header>
     <main>
-        <div class="first_aid">
+        <div class="first_aid" id="first_aid">
+            <a href="#" onclick="closeNav()"><i class="fa-solid fa-x"></i></a>
             <h2>FIRST AID:</h2>
             <div class="epinephrine_images">
                 <img class="epinephrine" src="images/AUVI-Q.png" alt="AUVI-Q">
@@ -39,7 +41,7 @@
                 <p id="other">OTHER (optional):</p>
                 <ul id="optional_bullets">
                     <li>Keep track of when you started noticing symptoms and what you ate. Paramedics will ask for this information when they arrive. <br></li>
-                    <li>AFTER they're safe, maybe grab some comfy clothes, a blanket, a book, a charger… anything you think your person with food allergies might like to have while they wait (potentially) 4 hours being monitored at the hospital. Trust me, it’s boring (still go though lol).</li>
+                    <li>AFTER they're safe, maybe grab some comfy clothes, a blanket, a book, a charger… anything you think your person with food allergies might like to have while they wait (potentially) 4 hours being monitored at the hospital. Trust me, it’s boring (still go though).</li>
                 </ul>
             </p>
         </div>
@@ -65,8 +67,21 @@
             </a>
             <a href="https://instagram.com" target="_blank" class="socials">
                 <i class="fa-brands fa-instagram-square"></i>
-            </a> 
+            </a>
         </div>
     </footer>
+    <script>
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+        function openNav() {
+        document.getElementById("first_aid").style.width = "350px";
+        document.getElementById("scooch").style.marginLeft = "350px";
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+        document.getElementById("first_aid").style.width = "0";
+        document.getElementById("scooch").style.marginLeft = "0";
+        }
+    </script>
 </body>
 </html>
