@@ -187,7 +187,6 @@ footer h5 {
   }
   
 /* The navigation menu links */
-/* applies to x button */
 #first_aid a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -196,7 +195,6 @@ footer h5 {
     display: block;
     transition: 0.3s;
 }
-
 
 /* Position and style the close button (top right corner) */
 #close_button {
