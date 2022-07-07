@@ -51,7 +51,7 @@ def read_dict(filename, key_column_index):
     return products_dict
 
 def find_name(products_dict, product_number):
-    # index parameter
+    # index parameter - combine functions
     """
     Finds name of item in provided dictionary based on the product number.
     """
