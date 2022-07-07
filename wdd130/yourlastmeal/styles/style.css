@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&family=Cabin+Condensed&family=Concert+One&family=Quicksand:wght@400;700&family=Sniglet&display=swap');
 
+body {
+    margin: 0;
+}
 :root {
 /* change the values below to your chosen font(s) */
 --heading-font: "Averia Sans Libre";
@@ -22,10 +25,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--headline-color-on-white);
 }
 
-/* main { */
-    /* display: grid; */
-    /* grid-template-columns: 360px 1fr; */
-/* } */
 .colored {
     padding: 1em;
     text-align: left;
@@ -37,18 +36,15 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 20%;
 }
 .red {
     background-color: #CB4646;
-    border-radius: 10px;
 }
 .nav_bar {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     background-color: var(--nav-background-color);
-    border-radius: 10px;
-    margin: 10px 0 5px 0;
+    margin: 0px 0 5px 0;
 }
 .nav_options {
     justify-self: center;
@@ -61,12 +57,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     box-sizing: border-box;
     text-align: center;
-
 }
 nav a:hover {
     color: var(--nav-hover-link-color);
     background-color: var(--nav-hover-background-color);
-    border-radius: 10px;
 }
 /* .nav_bar a:link, nav a:visited {
     color: var(--nav-link-color);
@@ -81,10 +75,10 @@ nav a:hover {
     grid-column: 1/2;
     display: grid;
     justify-items: center;
-    border: 8px solid #A9E3F6;
     background-color: white;
-    border-radius: 10px;
-    margin: 5px 10px 0 0;
+    box-sizing: border-box;
+    padding: 0;
+    /* margin: 5px 10px 0 0; */
 }
 .first_aid h2 {
     text-align: center;
@@ -126,20 +120,22 @@ li {
 }
 h1 {
     text-align: center;
+    margin: 0 0 20px 0;
 }
 .about_me p {
     font-family: var(--paragraph-font);
     font-size: 1.5em;
-    margin: 0 10px;
+    margin: 0;
 }
 
 /* Footer */
+/* round */
 footer {
     background-color: #05347E;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin: 10px 0 10px 0;
+    margin: 0;
 }
 footer h5 {
     color: white; 
@@ -165,7 +161,7 @@ footer h5 {
 #me {
     width: 310px;
     float: left;
-    margin-right: 10px;
+    margin: 0 20px 0 0;
     border-radius: 10px;
 }
 
@@ -179,6 +175,7 @@ footer h5 {
 
 /* The side navigation menu */
 #first_aid {
+    /* margin-top: 20%; */
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
     position: fixed; /* Stay in place */
@@ -186,37 +183,39 @@ footer h5 {
     top: 0; /* Stay at the top */
     left: 0;
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
   }
   
-  /* The navigation menu links */
-  #first_aid a {
+/* The navigation menu links */
+/* applies to x button */
+#first_aid a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
     transition: 0.3s;
-  }
-  
-  /* Position and style the close button (top right corner) */
-  #first_aid .closebtn {
+}
+
+
+/* Position and style the close button (top right corner) */
+#close_button {
+    grid-row: 1/2;
     position: absolute;
-    top: 0;
-    right: 25px;
+    top: 10px;
+    right: 10px;
     font-size: 36px;
     margin-left: 50px;
-  }
-  
-  /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-  .about_me {
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+.about_me {
     transition: margin-left .5s;
     padding: 20px;
-  }
-  
-  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-  @media screen and (max-height: 450px) {
-    #first_aid {padding-top: 15px;}
-    #first_aid a {font-size: 18px;}
-  }
+}
+
+On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size)
+@media screen and (max-height: 450px) {
+#first_aid {padding-top: 15px;}
+#first_aid a {font-size: 18px;}
+}

@@ -30,10 +30,10 @@ def main():
                         perc_reduc = float(input(
                             "Percent reduction of texting while driving [0, 100]: "))
                     except ValueError:
-                        #if statement here?
-                        #better plz
-                        print("Try again")
-
+                        if perc_reduc < 0:
+                            print("Please enter a number between 0 and 100")
+                        if perc_reduc > 100:
+                            print("Please enter a number between 0 and 100")
                 print()
                 print(f"With a {perc_reduc}% reduction in using a cell",
                     "phone while driving, approximately this",
