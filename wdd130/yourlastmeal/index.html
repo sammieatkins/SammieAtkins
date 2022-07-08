@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     <title>Your Last Meal | Home</title>
@@ -18,15 +18,15 @@
         </div>
         <nav class="nav_bar">
             <a href="#" onclick="openNav()" class="nav_options">FIRST AID</a>
-            <a href="tips.html" class="nav_options">Tips & Tricks</a>
             <a href="index.html" class="nav_options">Home</a>
+            <a href="tips.html" class="nav_options">Tips & Tricks</a>            
             <a href="stories.html" class="nav_options">Personal Stories</a>
         </nav>
     </header>
     <main>
         <div class="first_aid" id="first_aid">
             <a href="#" onclick="closeNav()" id="close_button"><i class="fa-solid fa-x"></i></a>
-            <h2>FIRST AID:</h2>
+            <h2>FIRST AID</h2>
             <div class="epinephrine_images">
                 <img class="epinephrine" src="images/AUVI-Q.png" alt="AUVI-Q">
                 <img class="epinephrine" src="images/epipens.jpeg" alt="EPIPENS">
@@ -47,7 +47,7 @@
         </div>
         <div class="about_me">
             <h1>About Me</h1>
-            <div>
+            <div class="center">
                 <img id="me" src="images/about_me.png" alt="Sammie Atkins">
                 <p>I'm Samantha (Sammie) Atkins, creator of Your Last Meal. I have life-threatening food allergies to eggs, peanuts, and treenuts. I'm 21 years old, and I've had a lot of experience with allergic reactions, handling social situations with food allergies, adjusting to college, advocating for myself, etc. I created Your Last Meal as a food allergy awareness site where I could share my tips & tricks and personal stories regarding my experiences as a person with life-threatening food allergies. <br><br>
                 The name for this site, Your Last Meal, is meant to be a dramatic, yet comical reminder for me and all people with life-threatening food allergies that if we're not careful, any meal could be our last. Hopefully the content on this webiste can help you, or give the people you love ideas on how to help you, in your efforts to stay safe. 
@@ -58,6 +58,8 @@
     <footer>
         <h5>Your Last Meal &copy; 2022 - Samantha Atkins</h5>
         <h5><a href="site-plan.html" id="site_plan_link">Site Plan</a></h5>
+        <!-- ADD CONTACT US PAGE - COPY FROM WWR -->
+        <h5>Contact Us</h5>
         <div class="social">
             <a href="https://facebook.com" target="_blank" class="socials">
                 <i class="fa-brands fa-facebook-square"></i>
@@ -77,7 +79,7 @@
         document.getElementById("scooch").style.marginLeft = "350px";
         document.getElementById("first_aid").style.border = "8px solid #A9E3F6";
         }
-
+// A9E3F6 CB4646
         /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
         function closeNav() {
         document.getElementById("first_aid").style.width = "0";
