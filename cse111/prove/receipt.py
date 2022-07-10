@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 # products.csv
 ITEM_ID_INDEX = 0
@@ -9,26 +10,62 @@ ITEM_PRICE_INDEX = 2
 ITEM_ID_INDEX = 0
 ITEM_QUANTITY_INDEX = 1
 
+"""
+Print the store name at the top of the receipt.
+Print the list of ordered items.
+Sum and print the number of ordered items.
+
+Sum and print the subtotal due.
+Compute and print the sales tax amount. Use 6% as the sales tax rate.
+Compute and print the total amount due.
+Print a thank you message.
+Get the current date and time from your computer's operating system and print the current date and time.
+Include a try block and except blocks to handle FileNotFoundError, PermissionError, and KeyError.
+"""
+
 def main():
     """
     Contains a loop that reads and processes each row from the request.csv file. Within the body of the loop, your program must do the following for each row:
         Use the requested product number to find the corresponding item in the products_dict.
         Print the product name, requested quantity, and product price.
     """
-
     products_dict = read_dict("products.csv", ITEM_ID_INDEX)
-    print(products_dict)
+    # print(products_dict)
+
     with open("request.csv", "rt") as file:
         reader = csv.reader(file)
         next(reader)
-        print("Requested items:")
-        for line in reader:
-            product_number = line[ITEM_ID_INDEX]
-            product_name = find_name(products_dict, product_number)
-            quantity = line[1]
-            price = find_price(products_dict, product_number)
-            print(f"{product_name}: {quantity} @ {price}")
 
+        # Print the store name at the top of the receipt.
+        print()
+        print("Inkom Emporium")
+        print()
+
+        # Print the list of ordered items.
+        get_requested_items(products_dict, reader)
+        print()
+        
+        # Sum and print the number of ordered items.
+        count_items(reader)
+        print()
+        
+        # Sum and print the subtotal due.
+        calculate_subtotal(products_dict, reader)
+
+        # Compute and print the sales tax amount.
+        calculate_sales_tax()
+
+        # Compute and print the total amount due.
+        calculate_total()
+
+        # Print a thank you message.
+        print("Thank you for shopping at the Inkom Emporium.")
+
+        # Get the current date and time from your computer's operating system and print the current date and time.
+        print_date()
+
+
+# make things print out in function
 def read_dict(filename, key_column_index):
     """Read the contents of a CSV file into a compound
     dictionary and return the dictionary.
@@ -50,43 +87,76 @@ def read_dict(filename, key_column_index):
                 products_dict[key] = row_list
     return products_dict
 
-def find_name(products_dict, product_number):
-    # index parameter - combine functions
+def find_index(products_dict, product_number, index):
     """
     Finds name of item in provided dictionary based on the product number.
+    Parameters:
+        products_dict: dictionary
+        product_number: product number to search for
+        indexd: index you want to search for
+    Returns: the index searched for. If not found will return "!"
     """
     if product_number in products_dict:
-        # gets name
-        name = products_dict[product_number][ITEM_NAME_INDEX]
+        item = products_dict[product_number][index]
     else:
-        name = "No such name"
-    return name
+        item = "!"
+    return item
 
-# def find_quantity(file):
-#     """
-    
-#     """
-#     quantity = line[1]
-    
-
-    
-    # if product_number in file:
-    #     quantity = file[ITEM_QUANTITY_INDEX]
-    # else:
-    #     quantity = "No such quantity"
-    # return quantity 
-
-def find_price(products_dict, product_number):
+def get_requested_items(products_dict, reader):
     """
-    Finds price of item in provided dictionary based on the product number.
+    Reads "request.csv" file. Prints product name, quantity, and price.
+    Parameter:
+        products_dict 
+    Returns:
+        none
     """
-    if product_number in products_dict:
-        price = products_dict[product_number][ITEM_PRICE_INDEX]
-    else:
-        price = "No such price"
-    return price
 
+    print("Requested items:")
+    for line in reader:
+        product_number = line[ITEM_ID_INDEX]
+        product_name = find_index(products_dict, product_number, ITEM_NAME_INDEX)
+        quantity = line[1]
+        price = find_index(products_dict, product_number, ITEM_PRICE_INDEX)
+        print(f"{product_name}: {quantity} @ {price}")
 
+def count_items(reader):
+    """
+    Counts number of lines in csv file and prints it out.
+    Parameter:
+        reader: list already read as csv file and skipped header row.
+    Returns:
+        none
+    """
+    count = 0
+    for _ in reader:
+        count += 1
+    print(f"Number of items: {count}")
 
+def calculate_subtotal(products_dict, reader):
+    """
+    Computes and prints the sales tax amount. Uses 6% as the sales tax rate.
+    Parameters:
+        products_dict: 
+        reader: list already read as csv file and skipped header row.
+    Returns:
+        none
+    """
+    price = 0
+    for line in reader:
+        product_number = line[ITEM_ID_INDEX]
+        price += float(find_index(products_dict, product_number, ITEM_PRICE_INDEX))
+    print(f"Subtotal: ${price}")
+
+def calculate_sales_tax():
+    pass
+
+def calculate_total():
+    pass
+def print_date():
+    # Call the now() method to get the current date and time as a datetime object from the computer's operating system.
+    current_date_and_time = datetime.now()
+
+    # Print the current day of the week and the current time.
+    print(f"{current_date_and_time:%A %I:%M %p}")
 if __name__ == "__main__":
     main()
