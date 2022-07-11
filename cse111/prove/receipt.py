@@ -14,7 +14,6 @@ ITEM_QUANTITY_INDEX = 1
 Print the store name at the top of the receipt.
 Print the list of ordered items.
 Sum and print the number of ordered items.
-
 Sum and print the subtotal due.
 Compute and print the sales tax amount. Use 6% as the sales tax rate.
 Compute and print the total amount due.
