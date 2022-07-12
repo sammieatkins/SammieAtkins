@@ -10,6 +10,7 @@ CSE 111 Proposal for a Student Chosen Program
     knowledge.)
 
 1. What is the title of your program?
+(is this the name of the file?)
 books.py
 
 2. What real-world problem will your program address or help to solve?
@@ -19,7 +20,7 @@ Keeping track of what books you've read.
 Using api, because I'll search for the book to find data like how many pages are in it or the genre.
 
 4. What Python modules will your program use?
-csv, datetime, requests, pytest
+csv, datetime, requests, pytest, random
     (Some examples are: csv, datetime, functools, matplotlib, math,
     pandas, pytest, random, requests, and tkinter.)
 
