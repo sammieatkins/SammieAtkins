@@ -7,6 +7,28 @@ GIVEN_NAME_INDEX = 0
 SURNAME_INDEX = 1
 BIRTHDATE_INDEX = 2
 
+def main():
+    student_list = read_compound_list("pupils.csv")
+    # print_list(student_list)
+    birthdate = lambda student_list: student_list[BIRTHDATE_INDEX]
+    month_day = separate_birthdate(birthdate)
+    birth_sort_list = sorted(student_list, key=month_day)
+    print_list(birth_sort_list)
+    # print(birthdate)
+    # print()
+    # print()
+    # birth_sort_list = sorted(student_list, key=birthdate)
+    # print_list(birth_sort_list)
+
+    # name = lambda student_list: student_list[GIVEN_NAME_INDEX]
+    # name_sort_list = sorted(student_list, key=name)
+    # print_list(name_sort_list)
+
+def separate_birthdate(birthdate):
+    birthdate = birthdate.split("-")
+    month = birthdate[1]
+    day = birthdate[2]
+    return month, day
 
 def read_compound_list(filename):
     """Read the text from a CSV file into a compound list.
@@ -39,3 +61,10 @@ def read_compound_list(filename):
             compound_list.append(row)
 
     return compound_list
+
+def print_list(file):
+    for line in file:
+        print(line)
+
+if __name__ == "__main__":
+    main()
