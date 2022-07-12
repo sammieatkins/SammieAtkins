@@ -10,18 +10,22 @@ CSE 111 Proposal for a Student Chosen Program
     knowledge.)
 
 1. What is the title of your program?
+books.py
 
 2. What real-world problem will your program address or help to solve?
+Keeping track of what books you've read.
 
 3. What will you learn from developing this program?
+Using api, because I'll search for the book to find data like how many pages are in it or the genre.
 
 4. What Python modules will your program use?
-
+csv, datetime, requests, pytest
     (Some examples are: csv, datetime, functools, matplotlib, math,
     pandas, pytest, random, requests, and tkinter.)
 
 5. Will you separate your Python program into functions that each
 perform a single task?
+Yes :)
 
     (Remember that the most reusable functions don't get user input and
     don't print results but instead have parameters and return a result.
@@ -36,4 +40,5 @@ perform a single task?
 
 6. Will you write test functions to test at least two of your program
 functions?
+Yes :)
 

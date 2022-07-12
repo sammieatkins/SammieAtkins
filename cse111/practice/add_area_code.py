@@ -13,7 +13,9 @@ def main():
         # phone number that begins with the area code "208-" To do this,
         # call the map function and pass the add_area_code function and
         # the list of phone numbers as arguments to the map function.
-        pass
+        for line in phone_numbers:
+            phone_number = line
+        new_numbers = add_area_code(phone_number)
 
         # Print the list with the corrected phone numbers.
         print(new_numbers)
@@ -33,7 +35,8 @@ def add_area_code(phone_number):
         "ddd-dddd" or "ddd-ddd-dddd"
     Return: a string of digits formated as "ddd-ddd-dddd"
     """
-    pass
+    if len(phone_number) == 8:
+        pass
 
 
 def read_list(filename):
