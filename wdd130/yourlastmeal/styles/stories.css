@@ -69,9 +69,59 @@ nav a:hover {
     color: var(--nav-hover-link-color);
     background-color: var(--nav-hover-background-color);
 }
+#first_aid_icon {
+    padding-right: 8px;
+    font-size: .9em;
+}
 
 /* Stories Content */
-
+.stories {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr auto;
+    margin: 0;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+.title {
+    grid-column: 2/3;
+    text-align: center;
+    font-size: 1.5em;
+}
+#explanation {
+    grid-column: 2/3;
+    /* background-color: #05347E; */
+    /* color: white; */
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    font-size: 1.5em;
+}
+/* #explanation_p {
+    grid-column: 2/3;
+    text-align: center;
+    padding: 20px;
+} */
+.stories h1 {
+    grid-column: 2/3;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 3em;
+}
+.stories h2 {
+    font-size: 2em;
+}
+.stories p {
+    grid-column: 2/3;
+    font-family: var(--paragraph-font);
+    font-size: 1.5em;
+    margin: 0 0 10px 0;
+    grid-column: 2/3;
+}
+#action_plan {
+    width: 100%;
+    grid-column: 2/3;
+}
 
 
 /* Footer */

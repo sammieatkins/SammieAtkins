@@ -5,18 +5,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="images/Your Last Meal Logo (1).ico" sizes="32x32">
+    <link rel="icon" href="images/ylm_icon.ico" sizes="32x32">
     <link rel="stylesheet" href="styles/stories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>Your Last Meal | Stories</title>
 </head>
-<body>
+<body id="scooch">
     <header>
         <a id= "logo_link" href="index.html">
             <img class = "logo" src="images/logo.png" alt="Your Last Meal Logo">
         </a>
         <nav class="nav_bar">
-            <a href="#" onclick="openNav()" class="nav_options">FIRST AID</a>
             <a href="index.html" class="nav_options">Home</a>
+            <a href="#" onclick="openNav()" class="nav_options" id="first_aid_nav"><i class="fa-solid fa-kit-medical" id="first_aid_icon"></i>First Aid</a>
             <a href="tips.html" class="nav_options">Tips & Tricks</a>
             <a href="stories.html" class="nav_options">Personal Stories</a>
         </nav>
@@ -43,26 +44,27 @@
                 </ul>
             </p>
         </div>
-    <main>
-        <h1>Personal Stories</h1>
-        <p>
-            I have life-threatening food allergies to eggs, peanuts, and treenuts. On this section of the page, I’ll be sharing some of my anaphylaxis experiences. <br><br><br>
-        
-            The choir performance one <br><br>
-        
-            This reaction happened in high school. It was a busy (and, spoiler alert, rough) weekend for me. On top of all the craziness I’m about to explain, I was in the process of getting my tooth that I broke in half fixed. So just keep in mind that I had a fake tooth that was barely holding on with some denture glue … a story for another day ;). Needless to say, there was a lot going on. 
-            I was in the Rising Generation Youth Chorus, an audition only choir sponsored by The Church of Jesus Christ of Latter Day Saints. We had one concert where after we sang, the members of the audience offered to let us eat pizza and hang out with the party. My friends and I found a table, scanning for one that didn’t have Reese’s peanut butter cups in the center, and we all sat down. After inquiring about if the pizza was safe to eat, I snatched a piece. Sadly I had to wait to eat it, because the fake tooth would have to come off for that and I was not ready to expose myself just yet. As soon as we got to the car, though, I pulled out my stupid tooth and dug in. <br>
-            When I got home, my stomach was hurting. Almost like I had gas or something, so I went to lay down. After a while though, it became all too clear that this was not just some innocent case of a sore stomach. I honestly don’t remember much from this point on. Gotta love trauma responses. Something I do remember: the pain being so intense I was arching my back and I couldn’t move or speak. Keep in mind - this is not my usual reaction. It took us a while to recognize it for what it was because I’m used to my throat swelling up. I tend to have a quick reaction with minimal time to act or debate. Once it dawned on us (or rather, my parents since I was out of it), we rushed to the hospital. I had to be carried out of the car. On the way there, I started freaking out. It’s said that one of the symptoms of anaphylaxis is a “sense of impending doom” (see picture from FARE website). I started to experience that feeling, which was when we administered the epipen. This was the only reaction I had where I actually thought I was going to die. Thankfully, the epinephrine (a miracle drug) did the trick. <br>
-            We made it to the hospital, and they took care of me. So there I am, waiting out my 4 hours in the hospital room, about half a front tooth to my name, alive and well. And they all lived happily ever after. <br>
-            The thing about allergic reactions is it’s not always clear what exactly you reacted to. I’m still not sure what the allergen was that caused this one. There are two suspects: 1) perhaps some sort of egg thing in the actual pizza, or 2) aka the best guess: residue from Reese's peanut butter cups on the table. In hindsight, we realized we had bad logic about choosing a  table back at the event. We went to the table without peanut butter cups, without realizing that that would mean the Reese’s peanut butter cups had been eaten and therefore would have left residue on the table. <br><br><br>
-        
-        
-            The driving one - a cautionary tale about assumptions <br><br>
-        
-            I was on my way to hang out with some friends when I decided I was hungry and wanted to stop by Taco Bell. I had always eaten there safely, so I didn’t think to ask about any egg or nut products. I don’t remember exactly what I ordered, but it had some sort of white sauce (which I didn’t realize until after the fact). I was ravenous, so I scarfed it down on my way to where my friends and I were going to meet up. That was my first mistake: eating while driving. Then when I got to the parking lot I finished off the last few bites before noticing the tell-tale signs of an allergic reaction for me. A peculiar feeling in my throat, nausea, increased saliva, overall sensation of impending doom. Ya know, the usual. Anyways, I immediately recognized the symptoms and pulled out my epipens, administered it to my outer thigh, and dialed 911 all within seconds. The ambulance found me in the parking lot a few minutes later. Thankfully, I’ve learned the skill of catching a reaction quickly, so there wasn’t much for the paramedics to do but take me to the hospital for monitoring (to make sure I don’t have a rebound reaction). This reaction was scary as always, but it was also a big confidence booster for me and my family to know that I can handle a reaction when I’m all alone (I hadn’t met up with my friends yet). This was a huge comfort for all of us when I left for college. 
-        </p>
-        <img src="images/wanted_poster.png" alt="Allergens Wanted Poster">
-        <img src="images/ECP-FAAP_Plan_English-05.121024_1.jpg" alt="FARE Allergy Action Plan">
+        <div class="stories">
+            <h1>Personal Stories</h1>
+            <!-- <p id="explanation_p">On this section of the page, I’ll be sharing some of my anaphylaxis experiences.</p> -->
+            <h2 id="explanation">On this section of the page, I’ll be sharing some of my anaphylaxis experiences.</h2>
+            <h2 class="title">The Choir Performance One</h2>
+            <p>            
+                This reaction happened in high school. It was a busy (and, spoiler alert, rough) weekend for me. On top of all the craziness I’m about to explain, I was in the process of getting my tooth that I broke in half fixed. So just keep in mind that I had a fake tooth that was barely holding on with some denture glue … a story for another day ;). Needless to say, there was a lot going on. 
+                I was in the Rising Generation Youth Chorus, an audition only choir sponsored by The Church of Jesus Christ of Latter Day Saints. We had one concert where after we sang, the members of the audience offered to let us eat pizza and hang out with the party. My friends and I found a table, scanning for one that didn’t have Reese’s peanut butter cups in the center, and we all sat down. After inquiring about if the pizza was safe to eat, I snatched a piece. Sadly I had to wait to eat it, because the fake tooth would have to come off for that and I was not ready to expose myself just yet. As soon as we got to the car, though, I pulled out my stupid tooth and dug in. <br>
+                When I got home, my stomach was hurting. Almost like I had gas or something, so I went to lay down. After a while though, it became all too clear that this was not just some innocent case of a sore stomach. I honestly don’t remember much from this point on. Gotta love trauma responses. Something I do remember: the pain being so intense I was arching my back and I couldn’t move or speak. Keep in mind - this is not my usual reaction. It took us a while to recognize it for what it was because I’m used to my throat swelling up. I tend to have a quick reaction with minimal time to act or debate. Once it dawned on us (or rather, my parents since I was out of it), we rushed to the hospital. I had to be carried out of the car. On the way there, I started freaking out. It’s said that one of the symptoms of anaphylaxis is a “sense of impending doom” (see picture from FARE website). I started to experience that feeling, which was when we administered the epipen. This was the only reaction I had where I actually thought I was going to die. Thankfully, the epinephrine (a miracle drug) did the trick. <br>
+                We made it to the hospital, and they took care of me. So there I am, waiting out my 4 hours in the hospital room, about half a front tooth to my name, alive and well. And they all lived happily ever after. <br>
+                The thing about allergic reactions is it’s not always clear what exactly you reacted to. I’m still not sure what the allergen was that caused this one. There are two suspects: 1) perhaps some sort of egg thing in the actual pizza, or 2) aka the best guess: residue from Reese's peanut butter cups on the table. In hindsight, we realized we had bad logic about choosing a  table back at the event. We went to the table without peanut butter cups, without realizing that that would mean the Reese’s peanut butter cups had been eaten and therefore would have left residue on the table. <br><br><br>
+            </p>
+            
+            <h2 class="title">The Driving One</h2>
+            <h3 class="title">A cautionary tale about assumptions</h3>
+            <p>            
+                I was on my way to hang out with some friends when I decided I was hungry and wanted to stop by Taco Bell. I had always eaten there safely, so I didn’t think to ask about any egg or nut products. I don’t remember exactly what I ordered, but it had some sort of white sauce (which I didn’t realize until after the fact). I was ravenous, so I scarfed it down on my way to where my friends and I were going to meet up. That was my first mistake: eating while driving. Then when I got to the parking lot I finished off the last few bites before noticing the tell-tale signs of an allergic reaction for me. A peculiar feeling in my throat, nausea, increased saliva, overall sensation of impending doom. Ya know, the usual. Anyways, I immediately recognized the symptoms and pulled out my epipens, administered it to my outer thigh, and dialed 911 all within seconds. The ambulance found me in the parking lot a few minutes later. Thankfully, I’ve learned the skill of catching a reaction quickly, so there wasn’t much for the paramedics to do but take me to the hospital for monitoring (to make sure I don’t have a rebound reaction). This reaction was scary as always, but it was also a big confidence booster for me and my family to know that I can handle a reaction when I’m all alone (I hadn’t met up with my friends yet). This was a huge comfort for all of us when I left for college. 
+            </p>
+            <!-- <img src="images/wanted_poster.png" alt="Allergens Wanted Poster" id="wanted"> -->
+            <!-- <img src="images/ECP-FAAP_Plan_English-05.121024_1.jpg" alt="FARE Allergy Action Plan" id="action_plan"> -->
+        </div>
     </main>
     <footer>
         <h5>Your Last Meal &copy; 2022 - Samantha Atkins</h5>

@@ -69,6 +69,10 @@ nav a:hover {
     color: var(--nav-hover-link-color);
     background-color: var(--nav-hover-background-color);
 }
+#first_aid_icon {
+    padding-right: 8px;
+    font-size: .9em;
+}
 
 /* Tips & Tricks Article */
 .tips {
@@ -102,8 +106,7 @@ nav a:hover {
     font-family: var(--paragraph-font);
     font-size: 1.5em;
     margin: 0 0 10px 0;
-    grid-column: 2/3; 
-
+    grid-column: 2/3;
 }
 #across_p {
     grid-column: 2/4;

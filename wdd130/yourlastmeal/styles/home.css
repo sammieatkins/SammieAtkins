@@ -19,15 +19,9 @@ body {
 --nav-hover-link-color: white;
 --nav-hover-background-color: #CB4646;
 }
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
     color: var(--headline-color-on-white);
-}
-
-.colored {
-    padding: 1em;
-    text-align: left;
 }
 
 /* Home Page Nav Bar */
@@ -62,13 +56,10 @@ nav a:hover {
     color: var(--nav-hover-link-color);
     background-color: var(--nav-hover-background-color);
 }
-/* .nav_bar a:link, nav a:visited {
-    color: var(--nav-link-color);
+#first_aid_icon {
+    padding-right: 8px;
+    font-size: .9em;
 }
-.nav_bar a:hover {
-    color: var(--nav-hover-link-color);
-    background-color: var(--nav-hover-background-color);
-} */
 
 /* First Aid Left Banner */
 .first_aid {
@@ -127,11 +118,18 @@ h1 {
 }
 .about_me p {
     font-family: var(--paragraph-font);
-    font-size: 2em;
+    font-size: 1.5em;
     margin: 0;
 }
 .center {
     grid-column: 2/3;
+}
+#quote {
+    padding: 1em;
+    text-align: left;
+    background-color: #CB4646;
+    color: white;
+    font-size: 1.8em;
 }
 
 /* Footer */
@@ -167,7 +165,7 @@ footer h5 {
 #me {
     width: 350px;
     float: left;
-    margin: 0 20px 0 0;
+    margin: 0 45px 0 0;
     border-radius: 10px;
 }
 
