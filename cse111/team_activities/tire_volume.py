@@ -86,11 +86,11 @@ def populate_main_window(frm_main):
     lbl_volume.grid(row=0, column=2, padx=(30,3), pady=3)
     lbl_result.grid( row=0, column=3, padx=3, pady=3)
 
-    btn_clear.grid(row=1, column=0, padx=3, pady=3, columnspan=5, sticky="w")
+    btn_clear.grid(row=3, column=0, padx=3, pady=3, columnspan=5, sticky="w")
 
 
     # This function will be called each time the user releases a key.
-    def calculate(event):
+    def calculate():
         """Compute and display the user's slowest
         and fastest beneficial heart rates.
         """

@@ -1,11 +1,11 @@
 # how many # signs and what they mean
     ################ = question / important note
-    # = Note to stay in program
+    # = Note to stay in program.
     # = commented out code
     ## = heading of note to stay in program
-    ### = personal note of something to do
+    ### = personal note
 
-# Imports
+# Imports.
 from datetime import datetime
 import csv
 import os
@@ -15,6 +15,13 @@ import operator
 
 ########## CAREFUL DON'T RUN YET BC NOT SURE IF DELETE THING WORKS RIGHT ##########
 
+##########
+# sort function - don't know what's going on
+# try block/while loop situation in main
+    # turn into a function?
+# add genre and sort by that? is there a way to make that optional?
+
+# Constants.
 KEY_COLUMN_INDEX = 0
 
 def main():
@@ -26,6 +33,7 @@ def main():
     # choice = -1
 
     ########### try block or while loop? ############
+    # while choice >= 1 and choice <= 4:
     try:
         # Get user choice from menu.
             ### try block here
@@ -64,6 +72,7 @@ def print_main_menu():
     print("2. Remove a book")
     print("3. Display book list")
     print("4. Quit")
+    print()
 
 def print_display_menu():
     # title and author alphabetical
@@ -94,13 +103,12 @@ def sort_books(books_dict, sort_by):
         ### sort by date entered
         books_list = sorted(books_dict.items(), key=lambda x:x[1])
         sortdict = dict(books_list)
-        print(sortdict)
+        print_dict(sortdict)
     elif sort_by == 2:
         ### sort by author
-        print()
-        sort_author = sorted(books_dict.items(), key=lambda x: x[1])
-        for i in sort_author:
-            print(f"{i[0]}. {i[1]}")
+        books_list = sorted(books_dict.items(), key=lambda x:x[1])
+        sortdict = dict(books_list)
+        print_dict(sortdict)
     elif sort_by == 3:
         ### sort by title
         pass
@@ -127,12 +135,17 @@ def read_dict(filename, key_column_index):
             rows += 1
             if len(row_list) != 0:
                 key = row_list[key_column_index]
-                books_dict[key] = row_list[1:len(row_list) - 1]
+                ### 1: assumes to the end
+                books_dict[key] = row_list[1:]
     return books_dict, rows + 1
 
 def print_dict(dictionary):
-    for line in dictionary:
-        print(line)
+    for key, value in dictionary.items():
+        title = value[0]
+        author = value[1]
+        date = value[2]
+        print(f"{key}. {title}, {author}, {date}")
+        print()
 
 def add_book(rows):
     """
@@ -167,7 +180,7 @@ def remove_book(books_dict):
         fixed_dict
     """
     # Print dictionary for user to see.
-    print_dict()
+    print_dict(books_dict)
 
     # Ask for number they want to remove.
         ### try block here
