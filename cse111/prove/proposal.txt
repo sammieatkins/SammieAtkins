@@ -17,10 +17,10 @@ books.py
 Keeping track of what books you've read.
 
 3. What will you learn from developing this program?
-Using api, because I'll search for the book to find data like how many pages are in it or the genre.
+Figuring out how to delete something from a dictionary and I'm using a numbered key list so updating that as things are deleted. 
 
 4. What Python modules will your program use?
-csv, datetime, requests, pytest, random
+csv, datetime, pytest, os
     (Some examples are: csv, datetime, functools, matplotlib, math,
     pandas, pytest, random, requests, and tkinter.)
 
