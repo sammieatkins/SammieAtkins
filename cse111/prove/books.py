@@ -96,22 +96,31 @@ def sort_books(books_dict, sort_by):
         4. Return to main menu
     Sorts books_dict by given parameter. 
     Parameters:
-        books_dict = dictionary to sort
+        books_dict = dictionary to sort [Key: Title, Author, Time Entered]
         sort_by = duh
     """
     if sort_by == 1:
-        ### sort by date entered
-        books_list = sorted(books_dict.items(), key=lambda x:x[1])
+        ### sort by date entered  
+        books_list = sorted(books_dict.items(), key=lambda x:x[1][0])
         sortdict = dict(books_list)
-        print_dict(sortdict)
+        for item in sortdict:
+            print(f"{sortdict[item][2]}, {sortdict[item][0]}, {sortdict[item][1]}")
     elif sort_by == 2:
         ### sort by author
-        books_list = sorted(books_dict.items(), key=lambda x:x[1])
+        books_list = sorted(books_dict.items(), key=lambda x:x[1][1])
         sortdict = dict(books_list)
-        print_dict(sortdict)
+        for item in sortdict:
+            print(f"{sortdict[item][1]}, {sortdict[item][0]}, {sortdict[item][2]}")
     elif sort_by == 3:
         ### sort by title
-        pass
+        for item in books_dict:
+            if books_dict[item][0][:3].lower() == "the":
+                books_dict[item][0] = books_dict[item][0][3:]
+        # books_list = sorted(books_dict.items(), key=lambda x:x[1][2] True if books_dict[item][0][:3].lower() == "the" else)
+        books_list = sorted(books_dict.items(), key=lambda x: x[1][0][3:] if x[1][0][:3].lower() == "the" else x[1][2])
+        sortdict = dict(books_list)
+        for item in sortdict:
+            print(f"{sortdict[item][0]}, {sortdict[item][1]}, {sortdict[item][2]}")
 
 def read_dict(filename, key_column_index):
     """Read the contents of a CSV file into a compound

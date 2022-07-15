@@ -41,8 +41,12 @@ def main():
     print_dict(books_dict)
 
 def print_dict(dictionary):
-    for line in dictionary:
-        print(line)
+    for key, value in dictionary.items():
+        title = value[0]
+        author = value[1]
+        date = value[2]
+        print(f"{key}. {title}, {author}, {date}")
+        print()
 
 # books_list = sorted(books_dict.items(), key=lambda x:x[0])
 # sortdict = dict(books_list)
