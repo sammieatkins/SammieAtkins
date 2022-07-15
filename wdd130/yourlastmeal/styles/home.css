@@ -62,6 +62,10 @@ nav a:hover {
 }
 
 /* First Aid Left Banner */
+.epinephrine {
+    width: 150px;
+    padding: 0 5px 0 5px;
+}
 .first_aid {
     grid-column: 1/2;
     display: grid;
@@ -108,7 +112,7 @@ li {
     grid-column: 2/3;
     display: grid;
     grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 5fr 1fr;
 }
 h1 {
     text-align: center;
@@ -120,6 +124,8 @@ h1 {
     font-family: var(--paragraph-font);
     font-size: 1.6em;
     margin: 0;
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 .center {
     grid-column: 2/3;
@@ -131,8 +137,18 @@ h1 {
     color: white;
     font-size: 1.5em;
     float: right;
-    width: 250px;
-    margin: 0 0 25px 25px;
+    height: 330px;
+    width: 300px;
+    margin: 0 0 0 25px;
+    display: flex;
+    align-items: center;
+    padding: 0 8px 0 30px;
+}
+#me {
+    width: 350px;
+    float: left;
+    margin: 0 40px 0 0;
+    border-radius: 10px;
 }
 
 /* Footer */
@@ -156,29 +172,10 @@ footer h5 {
     color: white;
     font-size: 3em;
 }
-
-/* Images */
-/* First Aid */
-.epinephrine {
-    width: 150px;
-    padding: 0 5px 0 5px;
+/* WHY DOESN'T THIS WORK?? */
+#twitter{
+    margin: 0 30px 0 30px;
 }
-
-/* Home Page Body */
-#me {
-    width: 350px;
-    float: left;
-    margin: 0 45px 0 0;
-    border-radius: 10px;
-}
-
-
-
-
-
-
-
-
 
 /* The side navigation menu */
 #first_aid {

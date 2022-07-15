@@ -32,9 +32,10 @@ h1, h2, h3, h4, h5, h6 {
 header {
     display: grid;
     grid-template-columns: 150px 4fr;
+    gap: 12px;
     align-items: center;
     justify-content: space-around;
-    /* background-color: #CB4646; */
+    background: #CB4646;
 }
 .nav_bar {
     display: flex;
@@ -45,7 +46,6 @@ header {
 #logo_link {
     display: flex;
     align-items: center;
-    background: #CB4646;
 }
 .logo {
     width: 100%;
@@ -107,6 +107,7 @@ nav a:hover {
     font-size: 1.5em;
     margin: 0 0 15px 0;
     grid-column: 2/3;
+    line-height: 1.7;
 }
 #across_p {
     grid-column: 2/4;
@@ -117,17 +118,21 @@ nav a:hover {
 .tips img {
     width: 100%;
 }
-#float_images {
+#tape {
     grid-column: 3/4;
-    grid-row: 3/6;
-    padding-left: 30px;
-    padding-bottom: 20px;
+    grid-row: 4/6;
+    width: 90%;
+    justify-self: center;
+    margin-top: 10px;
+    margin-left: 15px;
 }
-#float_images_two {
+#sneeze {
     grid-column: 3/4;
     grid-row: 6/8;
-    padding-left: 30px;
-    padding-bottom: 20px;
+    width: 90%;
+    justify-self: center;
+    margin-top: 10px;
+    margin-left: 15px;
 }
 
 /* #sneeze{

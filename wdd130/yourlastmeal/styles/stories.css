@@ -32,9 +32,10 @@ h1, h2, h3, h4, h5, h6 {
 header {
     display: grid;
     grid-template-columns: 150px 4fr;
+    gap: 12px;
     align-items: center;
     justify-content: space-around;
-    /* background-color: #CB4646; */
+    background: #CB4646;
 }
 .nav_bar {
     display: flex;
@@ -77,17 +78,17 @@ nav a:hover {
 /* Stories Content */
 .stories {
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 4fr 1.2fr 1fr;
     grid-template-rows: 1fr auto;
     margin: 0 30px 30px 30px;
 }
 .title {
-    grid-column: 2/3;
+    grid-column: 2/6;
     text-align: center;
     font-size: 1.5em;
 }
 #explanation {
-    grid-column: 2/3;
+    grid-column: 2/6;
     /* background-color: #05347E; */
     /* color: white; */
     text-align: center;
@@ -101,7 +102,7 @@ nav a:hover {
     padding: 20px;
 } */
 .stories h1 {
-    grid-column: 2/3;
+    grid-column: 2/6;
     text-align: center;
     margin-bottom: 0;
     font-size: 3em;
@@ -120,15 +121,31 @@ nav a:hover {
     margin-top: 0;
 }
 .stories p {
-    grid-column: 2/3;
     font-family: var(--paragraph-font);
     font-size: 1.5em;
     margin: 0 0 15px 0;
-    grid-column: 2/3;
+    grid-column: 2/6;
+    line-height: 1.7;
+}
+#short {
+    grid-column: 4/6;
+    margin-left: 20px;
 }
 #action_plan {
     width: 100%;
-    grid-column: 2/3;
+    height: 100%;
+    grid-column: 2/4;
+}
+#short_left {
+    grid-column: 2/5;
+}
+#wanted {
+    width: 90%;
+    justify-self: center;
+    /* padding-top: 20px; */
+    padding-left: 20px;
+    grid-column: 5/6;
+    grid-row: 7/8;
 }
 
 
