@@ -10,7 +10,6 @@ from datetime import datetime
 import csv
 import os
 import operator
-from sunau import Au_read
 # import requests
 # import random
 
@@ -39,7 +38,8 @@ def main():
             print()
             choice = int(input("Enter a menu item (ex: 1): "))
             if choice == 1:
-                books_dict = add_book(rows)
+                # books_dict = add_book(rows)
+                add_book(rows, books_dict)
             elif choice == 2:
                 remove_book(books_dict)
             elif choice == 3:
@@ -157,7 +157,7 @@ def print_dict(dictionary):
             print(f"{count}. {title}, {author}, {date}")
         print()
 
-def add_book(rows):
+def add_book(rows, books_dict):
     """
     Asks user for title and author of the book they read and enters it into "books.csv"
     Parameters:
@@ -177,11 +177,14 @@ def add_book(rows):
             date = datetime.now()
             with open("books.csv", "at") as books_file:
                 print(f"{rows},{title},{author.title()},{date: %Y-%m-%d %I:%M:%S}", file=books_file)
+                ##################
+                # new_key = books_dict.keys[KEY_COLUMN_INDEX] + 1
+            # books_dict[new_key] = title, author, date
         elif confirm == "n":
             print("Oops!! Let's try again :)")
     print(f"{title}, {author.title()}, {date: %Y-%m-%d %I:%M:%S} has been added to the list :)")
-    new_dict = read_dict("books.csv", KEY_COLUMN_INDEX)
-    return new_dict
+    # new_dict = read_dict("books.csv", KEY_COLUMN_INDEX)
+    # return new_dict
 
 def remove_book(books_dict):
     """
