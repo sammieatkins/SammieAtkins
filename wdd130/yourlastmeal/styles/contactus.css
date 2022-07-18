@@ -65,7 +65,7 @@ input,
 textarea {
     /* To make sure that all text fields have the same font settings
        By default, textareas have a monospace font */
-    font: 1em sans-serif;
+    font: 1em --paragraph-font;
   
     /* Uniform text field size */
     width: 300px;
@@ -96,7 +96,7 @@ button {
     margin-left: .5em;
   }
 #feedback {
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     position: absolute;
     top: 0;
     left: 0;
