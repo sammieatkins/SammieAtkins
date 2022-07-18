@@ -172,9 +172,8 @@ footer h5 {
     color: white;
     font-size: 3em;
 }
-/* WHY DOESN'T THIS WORK?? */
 #twitter{
-    margin: 0 30px 0 30px;
+    margin: 10px 30px 0 30px;
 }
 
 /* The side navigation menu */

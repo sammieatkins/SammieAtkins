@@ -34,7 +34,6 @@ def main():
         print_main_menu()
         try:
             # Get user choice from menu.
-                ### try block here
             print()
             choice = int(input("Enter a menu item (ex: 1): "))
             if choice == 1:
@@ -172,7 +171,7 @@ def add_book(rows, books_dict):
         author = input("Enter the author of the book: ")
         print()
 
-        confirm = input(f"Are you sure you want to add {title} by {author} y/n? ")
+        confirm = input(f"Are you sure you want to add {title} by {author} (y/n)? ")
         if confirm == "y":
             date = datetime.now()
             with open("books.csv", "at") as books_file:
@@ -202,11 +201,30 @@ def remove_book(books_dict):
             ## within length of the list
             ## number
             ## above 0
-    remove_key = input("Which book do you want to remove (ex: 1)? ")
-    
-    # Remove that item from the list.
-    del books_dict[remove_key]
-    print_dict(books_dict)
+    ######### figure out better situation with try blocks?
+
+    good_input = False
+
+    while good_input == False:
+        try:
+            remove_key = input("Which book do you want to remove (ex: 1)? ")
+        except ValueError:
+            good_input = False
+            print("Please enter a number.")
+        if remove_key < 0:
+            good_input = False
+            print("That number is not in the list. Please try again.")
+        elif len(remove_key) != 1:
+            good_input = False
+            print("Too many characters. Please try again.")
+        elif remove_key > len(books_dict):
+            good_input = False
+            print("That number is not in the list. Please try again.")
+        else:
+            good_input = True
+            # Remove that item from the list.
+            del books_dict[remove_key]
+            print_dict(books_dict)
 
     # # Fix key values so they are in order again
     # fixed_dict = fix_keys(books_dict)
@@ -217,25 +235,25 @@ def remove_book(books_dict):
     # # Make new file from fixed dictionary
     # make_new_file("books.csv", fixed_dict)
 
-def fix_keys(new_dict):
-    """
+# def fix_keys(new_dict):
+#     """
     
-    """
-    count = 0
-    fixed_dict = {}
-    for value in new_dict.values():
-        count += 1
-        fixed_dict[count] = value
-    return fixed_dict
+#     """
+#     count = 0
+#     fixed_dict = {}
+#     for value in new_dict.values():
+#         count += 1
+#         fixed_dict[count] = value
+#     return fixed_dict
 
-def delete_file(filename):
-    os.remove(filename)
+# def delete_file(filename):
+#     os.remove(filename)
 
-def make_new_file(filename, fixed_dict):
-    with open(filename) as books_file:
-        print("Key, Title, Author, Time Entered")
-        for key, values in fixed_dict.items():
-            print(f"{key}, {values}")
+# def make_new_file(filename, fixed_dict):
+#     with open(filename) as books_file:
+#         print("Key, Title, Author, Time Entered")
+#         for key, values in fixed_dict.items():
+#             print(f"{key}, {values}")
 
 if __name__ == "__main__":
     main()
