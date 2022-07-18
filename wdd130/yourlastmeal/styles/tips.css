@@ -157,13 +157,17 @@ footer h5 {
     text-decoration: none;
     color: white;
 }
+#contactus {
+    text-decoration: none;
+    color: white;
+}
 .socials {
     text-decoration: none;
     color: white;
     font-size: 3em;
 }
 #twitter{
-    margin: 10px 30px 0 30px;
+    margin: 0 20px 0 20px;
 }
 
 /* First Aid Left Banner */
