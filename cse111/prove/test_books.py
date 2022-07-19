@@ -1,6 +1,6 @@
 import pytest
 import csv
-from books import find_author, count_books_read
+from books import find_author, count_books_read, make_list
 
 def test_find_author():
     book = ["1","The Silly Goose","Sammie Atkins","2022-07-18 10:30:22"]
@@ -17,13 +17,9 @@ def test_find_author():
 
 def test_count_books_read():
     books_list = []
-    with open("test_books.csv") as file:
-        reader = csv.reader(file)
-        next(reader)
-        for line in reader:
-            books_list.append(line)
+    books_list = make_list("test_books.csv")
     books_read = count_books_read(books_list)
-    assert books_read == 2
+    assert books_read == 3
     
 
 pytest.main(["-v", "--tb=line", "-rN", __file__])

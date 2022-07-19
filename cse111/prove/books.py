@@ -9,7 +9,6 @@ AUTHOR_INDEX = 2
 DATE_ENTERED_INDEX = 3
 
 ###### write doc strings!!
-###### test_count_books_read()
 
 def main():   
     get_choice()
@@ -138,13 +137,6 @@ def add_book(books_list, rows):
     print(f"{title}, {author.title()}, {date:%Y-%m-%d %I:%M:%S} has been added to the list :)")
 
 def remove_book(books_list):
-    ####### how to handle if they enter in multiple numbers?
-    ####### fix try blocks?
-
-    # elif len(remove_key) != 1:
-    #     good_input = False
-    #     print("Too many characters. Please try again.")
-
     # Print list for user to see.
     print_list(books_list, 0)
 
@@ -170,7 +162,6 @@ def remove_book(books_list):
                 break
             
             # If key is valid, remove that index from the list.
-            ###### should I remove it from the file and then re-read it into a new list?
             else:
                 books_list.pop(remove_index - 1)
                 
@@ -187,10 +178,6 @@ def remove_book(books_list):
                 # print_list(books_list, 0)
                 good_input = True
 
-        ###### How to handle letters separately?
-        # except TypeError as type_err:
-        #     print(f"Please enter a number. {type_err}")
-        #     print()
         except ValueError as val_err:
             print(f"That number is not in the list. Please try again. {val_err}")
             print()
@@ -248,15 +235,6 @@ def sort_books(books_list):
         elif display_choice == 4:
             return
 
-def count_category(books_list, category):
-    """
-    Counts number of books under certain category given by user (ex: author) are in the list.
-    Ex: user types in author, then the author they want to search for. Function returns the number of 
-    """
-    if category.lower == "author":
-        search_author = input("Enter the author to search for: ")
-    pass
-
 def count_books_read(books_list):
     """
     Calculates number of books read.
@@ -268,7 +246,7 @@ def count_books_read(books_list):
     books_read = 0
     for _ in books_list[0]:
         books_read += 1
-    return books_read
+    return books_read 
 
 if __name__ == "__main__":
     main()
