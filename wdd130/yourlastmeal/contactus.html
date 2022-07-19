@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <title>Your Last Meal | Contact Us</title>
 </head>
-<body>
+<body id="scooch">
     <div id="content">
         <header>
             <a id= "logo_link" href="index.html">
@@ -22,6 +22,27 @@
             </nav>
         </header>
         <main>
+            <div class="first_aid" id="first_aid">
+                <a href="#" onclick="closeNav()" id="close_button"><i class="fa-solid fa-x"></i></a>
+                <h2>FIRST AID</h2>
+                <div class="epinephrine_images">
+                    <img class="epinephrine" src="images/AUVI-Q.png" alt="AUVI-Q">
+                    <img class="epinephrine" src="images/epipens.jpeg" alt="EPIPENS">
+                </div>
+                <p>
+                    1) Locate and give epinephrine FIRST<br><br>
+                    2) THEN call 911<br><br>
+                    3) Call family/friends/emergency contacts
+                </p>
+                <h4 class="colored">Yes, you call 911 SECOND.<br>This is different than treatment for other emergencies.</h4>
+                <p id="optional">
+                    <p id="other">OTHER (optional):</p>
+                    <ul id="optional_bullets">
+                        <li>Keep track of when you started noticing symptoms and what you ate. Paramedics will ask for this information when they arrive. <br></li>
+                        <li>AFTER they're safe, maybe grab some comfy clothes, a blanket, a book, a charger… anything you think your person with food allergies might like to have while they wait (potentially) 4 hours being monitored at the hospital. Trust me, it’s boring (still go though).</li>
+                    </ul>
+                </p>
+            </div>
             <div id="feedback"></div>
                 <form>
                     <ul>
@@ -78,6 +99,19 @@
             // add a class to move everything down so our message doesn't cover it.
             document.body.classList.toggle('moveDown');
         });
+        /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+        function openNav() {
+        document.getElementById("first_aid").style.width = "350px";
+        document.getElementById("scooch").style.marginLeft = "350px";
+        document.getElementById("first_aid").style.border = "8px solid #A9E3F6";
+        }
+
+        /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+        function closeNav() {
+        document.getElementById("first_aid").style.width = "0";
+        document.getElementById("scooch").style.marginLeft = "0";
+        document.getElementById("first_aid").style.borderStyle = "hidden";
+        }
     </script>
 </body>
 </html>

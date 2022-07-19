@@ -28,12 +28,10 @@ def main():
             print()
             choice = int(input("Enter a menu item (ex: 1): "))
             if choice == 1:
-                # books_dict = add_book(rows)
                 add_book(rows, books_dict)
             elif choice == 2:
                 remove_book(books_dict)
             elif choice == 3:
-                ### try block here to make sure they input the right number
                 display_choice = print_display_menu()
                 ### can sort be it's own function and parameter is menu option/sorting by thing?
                 sort_books(books_dict, display_choice)      
@@ -43,7 +41,7 @@ def main():
             else:
                 print("Please enter a number between 1 and 4")
 
-        except ValueError:
+        except TypeError:
             print("Please enter a number between 1 and 4")
 
 def print_main_menu():
@@ -60,7 +58,6 @@ def print_main_menu():
     print("2. Remove a book")
     print("3. Display book list")
     print("4. Quit")
-    print()
 
 def print_display_menu():
     # title and author alphabetical
@@ -72,6 +69,7 @@ def print_display_menu():
     print("4. Return to main menu")
     print()
     display_choice = int(input("Enter a display option (ex: 1): "))
+    print()
     return display_choice
 
 def sort_books(books_dict, sort_by):
@@ -87,6 +85,7 @@ def sort_books(books_dict, sort_by):
         books_dict = dictionary to sort [Key: Title, Author, Time Entered]
         sort_by = duh
     """
+    # while sort_by != 4:
     if sort_by == 1:
         ### sort by date entered  
         books_list = sorted(books_dict.items(), key=lambda x:x[1][0])
@@ -101,7 +100,7 @@ def sort_books(books_dict, sort_by):
             print(f"{sortdict[item][1]}, {sortdict[item][0]}, {sortdict[item][2]}")
     elif sort_by == 3:
         # Sort by title.
-        books_list = sorted(books_dict.items(), key=lambda books_dict: books_dict[1][0][4:] if books_dict[1][0][:3].lower() == "the" else books_dict[1][0])
+        books_list = sorted(books_dict.items(), key=lambda books_dict: books_dict[1][0][4:].upper() if books_dict[1][0][:3].lower() == "the" else books_dict[1][0].upper())
         sortdict = dict(books_list)
         for item in sortdict:
             print(f"{sortdict[item][0]}, {sortdict[item][1]}, {sortdict[item][2]}")
@@ -195,32 +194,34 @@ def remove_book(books_dict):
     ######### figure out better situation with try blocks?
 
     good_input = False
-    books_dict_length = len(books_dict)
+        ##### do I need to make good_input True in each if statement?
+    # books_dict_length = len(books_dict)
     while good_input == False:
         try:
             print("Enter -1 to return to main menu.")
             remove_key = int(input("Which book do you want to remove (ex: 1)? "))
-        except ValueError:
-            good_input = False
-            print("Please enter a number.")
-        if remove_key < -1:
-            good_input = False
-            print("That number is not in the list. Please try again.")
-        ####### how to handle if they enter in multiple numbers?
-        # elif len(remove_key) != 1:
-        #     good_input = False
-        #     print("Too many characters. Please try again.")
-        elif remove_key > books_dict_length:
-            good_input = False
-            print("That number is not in the list. Please try again.")
+            if remove_key < -1:
+                raise ValueError
+            ####### how to handle if they enter in multiple numbers?
+            # elif len(remove_key) != 1:
+            #     good_input = False
+            #     print("Too many characters. Please try again.")
+            elif remove_key > len(books_dict):
+                raise ValueError
+            elif remove_key == -1:
+                break
+            else:
+                del books_dict[remove_key]
+                print_dict(books_dict)
+                good_input = True
+        except TypeError as type_err:
+            print(f"Please enter a number. {type_err}")
             print()
-        elif remove_key == -1:
-            break
-        else:
-            good_input = True
-            # Remove that item from the list.
-            del books_dict[remove_key]
-            print_dict(books_dict)
+        except ValueError as val_err:
+            print(f"That number is not in the list. Please try again. {val_err}")
+            print()
+        
+
 
     # # Fix key values so they are in order again
     # fixed_dict = fix_keys(books_dict)

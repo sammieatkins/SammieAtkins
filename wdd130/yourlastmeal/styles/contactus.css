@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Averia+Sans+Libre:wght@300&family=Cabin+Condensed&family=Concert+One&family=Quicksand:wght@400;700&family=Sniglet&display=swap');
 
-body {
-    margin: 0;
-}
 :root {
 /* change the values below to your chosen font(s) */
 --heading-font: "Averia Sans Libre";
@@ -19,6 +16,10 @@ body {
 --nav-hover-link-color: white;
 --nav-hover-background-color: #05347E;
 }
+body {
+    margin: 0;
+    font: var(--paragraph-font);
+}
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--heading-font);
     color: var(--headline-color-on-white);
@@ -28,73 +29,94 @@ h1, h2, h3, h4, h5, h6 {
     text-align: left;
 }
 
+
+
+
+
+
+
+
+
+
+
 /* CONTACT US */
 main {
     display: grid;
-    grid-template-columns: 2fr 5fr 2fr;
-    margin: 100px 0 100px 0 ;
+    grid-template-columns: 3fr 2fr 3fr;
+    margin: 140px 0 140px 0;
+    font: var(--paragraph-font);
 }
 #feedback {
     justify-self: center;
+    font: var(--paragraph-font);
 }
 form {
     /* Center the form on the page */
     grid-column: 2/3;
     margin: 0 auto;
-    width: 800px;
+    width: 100%;
     /* Form outline */
     padding: 1em;
-    border: 1px solid #CCC;
-    border-radius: 1em;
-  }
+    border: 5px solid #A9E3F6;
+    /* border-radius: 1em; */
+    font: var(--paragraph-font);
+}
 ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
-  }
+    padding: 30px 0 30px 0;
+    margin: 0 auto;
+    width: 80%;
+    font: var(--paragraph-font);
+}
 form li + li {
     margin-top: 1em;
-  }
+}
 label {
     /* Uniform size & alignment */
     display: inline-block;
     width: 90px;
-    text-align: right;
-  }
+    font: var(--paragraph-font);
+    /* text-align: right; */
+    padding-bottom: 5px;
+}
 input,
 textarea {
     /* To make sure that all text fields have the same font settings
        By default, textareas have a monospace font */
-    font: 1em --paragraph-font;
+    font: 1em var(--paragraph-font);
   
     /* Uniform text field size */
-    width: 300px;
+    width: 285px;
     box-sizing: border-box;
   
     /* Match form field borders */
     border: 1px solid #999;
-  }
+    /* border-radius: .5em; */
+}
 input:focus,
 textarea:focus {
     /* Additional highlight for focused elements */
     border-color: #000;
-  }
+}
 textarea {
     /* Align multiline text fields with their labels */
     vertical-align: top;
   
     /* Provide space to type some text */
     height: 5em;
-  }
+}
 .button {
     /* Align buttons with the text fields */
-    padding-left: 90px; /* same size as the label elements */
-  }
-button {
+    /* padding-left: 90px; same size as the label elements */
+    /* align-items: center; */
+    width: 80%;
+}
+/* button {
     /* This extra margin represent roughly the same space as the space
        between the labels and their text fields */
-    margin-left: .5em;
-  }
+    /* margin-left: .5em; */
+    /* border-radius: 1em; */
+
 #feedback {
     /* background-color: antiquewhite; */
     position: absolute;
@@ -108,6 +130,15 @@ button {
 .moveDown {
     margin-top: 3em;
 }
+
+
+
+
+
+
+
+
+
 
 /* NAV BAR */
 header {
@@ -183,4 +214,90 @@ footer h5 {
 }
 #twitter {
     margin: 0 20px 0 20px;
+}
+/* First Aid Left Banner */
+.first_aid {
+    grid-column: 1/2;
+    display: grid;
+    justify-items: center;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 0;
+    /* margin: 5px 10px 0 0; */
+}
+.first_aid h2 {
+    text-align: center;
+    margin: 17px;
+}
+.epinephrine_images {
+    display: flex;
+}
+.first_aid p {
+    font-family: var(--paragraph-font);
+    padding: 20px;
+    margin: 0;
+}
+.first_aid h4 {
+    background-color: #05347E;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+#optional {
+    padding: 10px;
+}
+li {
+    font-family: var(--paragraph-font);
+}
+#other {
+    font-weight: bold;
+    padding: 0;
+}
+#optional_bullets {
+    padding-right: 30px;
+}
+.epinephrine {
+    width: 150px;
+    padding: 0 5px 0 5px;
+}
+
+/* The side navigation menu */
+#first_aid {
+    /* margin-top: 20%; */
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }  
+/* The navigation menu links */
+#first_aid a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+/* Position and style the close button (top right corner) */
+#close_button {
+    grid-row: 1/2;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+.about_me {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+#first_aid {padding-top: 15px;}
+#first_aid a {font-size: 18px;}
 }
