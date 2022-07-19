@@ -103,7 +103,6 @@ def get_choice():
             # Add a book to the list.
             if choice == 1:
                 add_book(books_list, rows)
-                books_list = make_list("books.csv")
             # Remove a book from the list.
             elif choice == 2:
                 remove_book(books_list)
@@ -176,7 +175,13 @@ def remove_book(books_list):
             ###### should I remove it from the file and then re-read it into a new list?
             else:
                 books_list.pop(remove_index - 1)
-                print_list(books_list, 0)
+                
+                # Open file for writing.
+                with open("books.csv", "wt"):
+                    print("Book Number, Title, Author, Date Entered")
+                    for line in books_list:
+                        print(line)
+                # print_list(books_list, 0)
                 good_input = True
 
         ###### How to handle letters separately?
@@ -199,9 +204,9 @@ def find_author(book):
     author = book[2]
     author = author.split()
     last_name = author[-1]
+    last_name = last_name.upper()
     return last_name  
    
-######
 def sort_books(books_list):
     """
     User sees:
@@ -221,10 +226,8 @@ def sort_books(books_list):
         display_choice = int(input("Enter a display option: "))
 
         # Sort by title.
-        ###### PROBLEM ######
-            ###### TypeError: 'int' object is not subscriptable ######
         if display_choice == 1:
-            sorted_list = sorted(books_list, key=lambda books_list:books_list[TITLE_INDEX][4:] if books_list[TITLE_INDEX][:3] == "The" else books_list[TITLE_INDEX])
+            sorted_list = sorted(books_list, key=lambda books_list:books_list[TITLE_INDEX][4:].upper() if books_list[TITLE_INDEX][:3] == "The" else books_list[TITLE_INDEX].upper())
             print_list(sorted_list, display_choice)
 
         # Sort by author.
