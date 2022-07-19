@@ -9,26 +9,38 @@ AUTHOR_INDEX = 2
 DATE_ENTERED_INDEX = 3
 
 ###### write doc strings!!
-###### test functions!!
+###### how to update the books list after they add a book? - they should be able to print it and have an updated number of books read
+###### remove doesn't work :(
+###### test_count_books_read()
 
 def main():
     books_list, rows = make_list("books.csv")
     
     get_choice(books_list, rows)
+    
+    new_books_list = make_list("books.csv")
 
-    books_read = count_books_read(books_list)
+    books_read = count_books_read(new_books_list)
     print(f"You've read {books_read} books!!")
 
 def make_list(filename):
-    books_list = []
+    """
+    Creates a list from a csv file. 
+    Parameter:
+        filename
+    Returns:
+        list: the list of the things in each row
+        rows: the number of rows in the file, skipping the header row
+    """
+    list = []
     rows = 0
     with open(filename) as file:
         reader = csv.reader(file)
         next(reader)
         for line in reader:
             rows += 1
-            books_list.append(line)
-    return books_list, rows + 1
+            list.append(line)
+    return list, rows + 1
 
 def print_main_menu():
     """
@@ -89,7 +101,8 @@ def get_choice(books_list, rows):
             choice = int(input("Enter a menu item: "))
             # Add a book to the list.
             if choice == 1:
-                books_list = add_book(books_list, rows)
+                add_book(books_list, rows)
+                books_list = make_list("books.csv")
             # Remove a book from the list.
             elif choice == 2:
                 remove_book(books_list)
@@ -108,9 +121,8 @@ def get_choice(books_list, rows):
 def add_book(books_list, rows):
     """
     returns:
-        new_books_list: updated list, makes program reread file.
+        none
     """
-    new_books_list = books_list
     confirm = "n"
     while confirm == "n":
         print()
@@ -123,11 +135,9 @@ def add_book(books_list, rows):
             date = datetime.now()
             with open("books.csv", "at") as books_file:
                 print(f"{rows},{title},{author.title()},{date:%Y-%m-%d %I:%M:%S}", file=books_file)
-            new_books_list = make_list("books.csv")
         elif confirm == "n":
             print("Oops!! Let's try again :)")
     print(f"{title}, {author.title()}, {date:%Y-%m-%d %I:%M:%S} has been added to the list :)")
-    return new_books_list
 
 def remove_book(books_list):
     ####### how to handle if they enter in multiple numbers?
@@ -162,9 +172,10 @@ def remove_book(books_list):
                 break
             
             # If key is valid, remove that index from the list.
+            ###### should I remove it from the file and then re-read it into a new list?
             else:
-                books_list.remove(remove_index)
-                print_list(books_list)
+                books_list.pop(remove_index - 1)
+                print_list(books_list, 0)
                 good_input = True
 
         ###### How to handle letters separately?
@@ -186,7 +197,6 @@ def find_author(book):
     last_name = "error"
     author = book[2]
     author = author.split()
-    # author_name_list = author.strip()
     last_name = author[-1]
     return last_name  
    
@@ -240,6 +250,7 @@ def count_category(books_list, category):
         search_author = input("Enter the author to search for: ")
     pass
 
+###### returning 2 books?
 def count_books_read(books_list):
     """
     Calculates number of books read.
@@ -251,7 +262,7 @@ def count_books_read(books_list):
     books_read = 0
     for _ in books_list:
         books_read += 1
-    return books_read + 1
+    return books_read
 
 if __name__ == "__main__":
     main()
