@@ -42,8 +42,8 @@ h1, h2, h3, h4, h5, h6 {
 /* CONTACT US */
 main {
     display: grid;
-    grid-template-columns: 3fr 2fr 3fr;
-    margin: 140px 0 140px 0;
+    grid-template-columns: 3fr 3fr 3fr;
+    margin: 0 0 170px 0;
     font: var(--paragraph-font);
 }
 #feedback {
@@ -60,6 +60,7 @@ form {
     border: 5px solid #A9E3F6;
     /* border-radius: 1em; */
     font: var(--paragraph-font);
+    box-sizing: border-box;
 }
 ul {
     list-style: none;
@@ -86,7 +87,7 @@ textarea {
     font: 1em var(--paragraph-font);
   
     /* Uniform text field size */
-    width: 285px;
+    width: 70%;
     box-sizing: border-box;
   
     /* Match form field borders */
@@ -107,7 +108,7 @@ textarea {
 }
 .button {
     /* Align buttons with the text fields */
-    /* padding-left: 90px; same size as the label elements */
+    padding-left: 95px; 
     /* align-items: center; */
     width: 80%;
 }
@@ -126,6 +127,10 @@ textarea {
     padding: .5em;
     /* make this element invisible until we are ready for it */
     display: none;       
+}
+#title {
+    grid-column: 2/3; 
+    text-align: center;  
 }
 .moveDown {
     margin-top: 3em;
