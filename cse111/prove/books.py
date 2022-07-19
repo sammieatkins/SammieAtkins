@@ -52,6 +52,13 @@ def print_main_menu():
     print("4. Quit")
 
 def print_display_menu():
+    """
+    Prints menu for user
+    Parameters:
+        none
+    Returns:
+        none
+    """
     print()
     print("Display by...")
     print("1. Title")
@@ -60,8 +67,20 @@ def print_display_menu():
     print("4. Return to main menu")
     print()
 
-def print_list(list, sort_by):
-    for line in list:
+def print_list(books_list, sort_by):
+    """
+    Prints list of books based on what they are sorted by. Different format for title, author, date, and a normal print out.
+    Parameters:
+        books_list: list to print out
+        sort_by: 
+            0 = normal print
+            1 = prints: title, author, date
+            2 = prints: author, title, date
+            3 = prints: date, title, author
+    Returns:
+        none
+    """
+    for line in books_list:
         number = line[BOOK_NUMBER_INDEX]
         title = line[TITLE_INDEX]
         author = line[AUTHOR_INDEX]
@@ -76,15 +95,27 @@ def print_list(list, sort_by):
         elif sort_by == 1:
             print(f"{title}, {author}, {date}")
 
-        # Print by date.
-        elif sort_by == 3:
-            print(f"{date}, {title}, {author}")
-        
         # Print by author.
         elif sort_by == 2:
             print(f"{author}, {title}, {date}")
 
+        # Print by date.
+        elif sort_by == 3:
+            print(f"{date}, {title}, {author}")
+
 def get_choice():
+    """
+    Gets user choice based on the menu and loops through until they enter 4 to quit. 
+    User sees:
+        1. Add a book
+        2. Remove a book
+        3. Display book list
+        4. Quit
+    Parameters:
+        none
+    Returns:
+        none
+    """
     choice = -1
 
     while choice != 4:
@@ -99,7 +130,7 @@ def get_choice():
             choice = int(input("Enter a menu item: "))
             # Add a book to the list.
             if choice == 1:
-                add_book(books_list, rows)
+                add_book(rows)
             # Remove a book from the list.
             elif choice == 2:
                 remove_book(books_list)
@@ -115,9 +146,12 @@ def get_choice():
         except ValueError as val_err:
             print(f"Please enter a number between 1 and 4. {val_err}")
 
-def add_book(books_list, rows):
+def add_book(rows):
     """
-    returns:
+    Adds a book to the compound list of books in the form of a list including [row #,title,author,date entered]
+    Parameter:
+        rows: comes from make_list() function. essentially the length of the list.
+    Returns:
         none
     """
     confirm = "n"
@@ -137,6 +171,14 @@ def add_book(books_list, rows):
     print(f"{title}, {author.title()}, {date:%Y-%m-%d %I:%M:%S} has been added to the list :)")
 
 def remove_book(books_list):
+    """
+    Displays the list for the user to see. User enters the number associated with the book and function removes that from the list and 
+    re-reads the dictionary.
+    Parameter:
+        books_list
+    Returns:
+        none
+    """
     # Print list for user to see.
     print_list(books_list, 0)
 
@@ -199,6 +241,7 @@ def find_author(book):
    
 def sort_books(books_list):
     """
+    Prints out sorted book list based on what the user chooses from the display menu. 
     User sees:
     Display by...
         1. Title
@@ -206,6 +249,9 @@ def sort_books(books_list):
         3. Date entered
         4. Return to main menu
     Parameters:   
+        books_list
+    Returns:
+        none
     """
     display_choice = 0
     while display_choice != 4:
