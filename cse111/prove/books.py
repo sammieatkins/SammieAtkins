@@ -13,10 +13,8 @@ DATE_ENTERED_INDEX = 3
 ###### remove doesn't work :(
 ###### test_count_books_read()
 
-def main():
-    books_list, rows = make_list("books.csv")
-    
-    get_choice(books_list, rows)
+def main():   
+    get_choice()
     
     new_books_list = make_list("books.csv")
 
@@ -89,10 +87,13 @@ def print_list(list, sort_by):
         elif sort_by == 2:
             print(f"{author}, {title}, {date}")
 
-def get_choice(books_list, rows):
+def get_choice():
     choice = -1
 
     while choice != 4:
+        # Read file.
+        books_list, rows = make_list("books.csv")
+
         # Print menu.
         print_main_menu()
         try:
@@ -263,6 +264,8 @@ def count_books_read(books_list):
     for _ in books_list:
         books_read += 1
     return books_read
+
+
 
 if __name__ == "__main__":
     main()
