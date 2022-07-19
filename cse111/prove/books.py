@@ -177,10 +177,11 @@ def remove_book(books_list):
                 books_list.pop(remove_index - 1)
                 
                 # Open file for writing.
-                with open("books.csv", "wt"):
-                    print("Book Number, Title, Author, Date Entered")
+                with open("books.csv", "wt") as books_file:
+                    print("Book Number, Title, Author, Date Entered", file=books_file)
                     for line in books_list:
-                        print(line)
+                        print(line, file=books_file)
+                        # comment comment
                 # print_list(books_list, 0)
                 good_input = True
 
