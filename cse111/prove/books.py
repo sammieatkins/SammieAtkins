@@ -179,11 +179,13 @@ def remove_book(books_list):
                 # Open file for writing.
                 with open("books.csv", "wt") as books_file:
                     print("Book Number, Title, Author, Date Entered", file=books_file)
+                    line_number = 0
                     for line in books_list:
+                        line_number += 1
                         title = line[TITLE_INDEX]
                         author = line[AUTHOR_INDEX]
                         date = line[DATE_ENTERED_INDEX]
-                        print(f"{title.title()},{author.title()},{date:%Y-%m-%d %I:%M:%S}", file=books_file)
+                        print(f"{line_number},{title.title()},{author.title()},{date:%Y-%m-%d %I:%M:%S}", file=books_file)
                 # print_list(books_list, 0)
                 good_input = True
 
