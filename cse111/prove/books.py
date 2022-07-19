@@ -1,60 +1,34 @@
-# how many # signs and what they mean
-    ################ = question / important note
-    # = Note to stay in program.
-    # = commented out code
-    ## = heading of note to stay in program
-    ### = personal note
-
 # Imports.
 from datetime import datetime
 import csv
-import os
-import operator
-from sunau import Au_read
-# import requests
-# import random
-
-########## CAREFUL DON'T RUN YET BC NOT SURE IF DELETE THING WORKS RIGHT ##########
-
-##########
-# sort function - don't know what's going on
-# try block/while loop situation in main
-    # turn into a function?
-# add genre and sort by that? is there a way to make that optional?
 
 # Constants.
-KEY_COLUMN_INDEX = 0
+BOOK_NUMBER_INDEX = 0
+TITLE_INDEX = 1
+AUTHOR_INDEX = 2
+DATE_ENTERED_INDEX = 3
+
+###### write doc strings!!
+###### test functions!!
 
 def main():
-    books_dict, rows = read_dict("books.csv", KEY_COLUMN_INDEX)
+    books_list, rows = make_list("books.csv")
+    
+    get_choice(books_list, rows)
 
-    choice = -1
+    books_read = count_books_read(books_list)
+    print(f"You've read {books_read} books!!")
 
-    while choice != 4:
-        # Print menu.
-        print_main_menu()
-        try:
-            # Get user choice from menu.
-                ### try block here
-            print()
-            choice = int(input("Enter a menu item (ex: 1): "))
-            if choice == 1:
-                books_dict = add_book(rows)
-            elif choice == 2:
-                remove_book(books_dict)
-            elif choice == 3:
-                ### try block here to make sure they input the right number
-                display_choice = print_display_menu()
-                ### can sort be it's own function and parameter is menu option/sorting by thing?
-                sort_books(books_dict, display_choice)      
-            elif choice == 4:
-                ### change message?
-                print("See you later!! :)")
-            else:
-                print("Please enter a number between 1 and 4")
-
-        except ValueError:
-            print("Please enter a number between 1 and 4")
+def make_list(filename):
+    books_list = []
+    rows = 0
+    with open(filename) as file:
+        reader = csv.reader(file)
+        next(reader)
+        for line in reader:
+            rows += 1
+            books_list.append(line)
+    return books_list, rows + 1
 
 def print_main_menu():
     """
@@ -64,107 +38,79 @@ def print_main_menu():
     Returns:
         none
     """
-    ### add "hello welcome to *insert name of program here*" message?
     print()
     print("1. Add a book")
     print("2. Remove a book")
     print("3. Display book list")
     print("4. Quit")
-    print()
 
 def print_display_menu():
-    # title and author alphabetical
     print()
     print("Display by...")
-    print("1. Date entered")
+    print("1. Title")
     print("2. Author")
-    print("3. Title")
+    print("3. Date Entered")
     print("4. Return to main menu")
     print()
-    display_choice = int(input("Enter a display option (ex: 1): "))
-    return display_choice
 
-def sort_books(books_dict, sort_by):
-    """
-    User sees:
-    Display by...
-        1. Date entered
-        2. Author
-        3. Title
-        4. Return to main menu
-    Sorts books_dict by given parameter. 
-    Parameters:
-        books_dict = dictionary to sort [Key: Title, Author, Time Entered]
-        sort_by = duh
-    """
-    if sort_by == 1:
-        ### sort by date entered  
-        books_list = sorted(books_dict.items(), key=lambda x:x[1][0])
-        sortdict = dict(books_list)
-        for item in sortdict:
-            print(f"{sortdict[item][2]}, {sortdict[item][0]}, {sortdict[item][1]}")
-    elif sort_by == 2:
-        ### sort by author
-        books_list = sorted(books_dict.items(), key=lambda x:x[1][1])
-        sortdict = dict(books_list)
-        for item in sortdict:
-            print(f"{sortdict[item][1]}, {sortdict[item][0]}, {sortdict[item][2]}")
-    elif sort_by == 3:
-        # Sort by title.
-        books_list = sorted(books_dict.items(), key=lambda books_dict: books_dict[1][0][4:] if books_dict[1][0][:3].lower() == "the" else books_dict[1][0])
-        sortdict = dict(books_list)
-        for item in sortdict:
-            print(f"{sortdict[item][0]}, {sortdict[item][1]}, {sortdict[item][2]}")
-    elif sort_by == 4:
-        return
+def print_list(list, sort_by):
+    for line in list:
+        number = line[BOOK_NUMBER_INDEX]
+        title = line[TITLE_INDEX]
+        author = line[AUTHOR_INDEX]
+        date = line[DATE_ENTERED_INDEX]
 
-def read_dict(filename, key_column_index):
-    """Read the contents of a CSV file into a compound
-    dictionary and return the dictionary.
-
-    Parameters
-        filename: the name of the CSV file to read.
-        key_column_index: the index of the column
-            to use as the keys in the dictionary.
-    Return: 
-        books_dict: a compound dictionary that contains
-        the contents of the CSV file.
-        rows
-    """
-    books_dict = {}
-    rows = 0
-    with open(filename) as file:
-        reader = csv.reader(file)
-        next(reader)
-        for row_list in reader:
-            rows += 1
-            if len(row_list) != 0:
-                key = row_list[key_column_index]
-                ### 1: assumes to the end
-                books_dict[key] = row_list[1:]
-    return books_dict, rows + 1
-
-def print_dict(dictionary):
-    for key, value in dictionary.items():
-        title = value[0]
-        author = value[1]
-        date = value[2]
-        # print(f"{key}. {title}, {author}, {date}")
+        # Normal print.
+        if sort_by == 0:
+            print()
+            print(f"{number}. {title}, {author}, {date}")
         
-        count = 0
-        for _ in dictionary:
-            count += 1
-            print(f"{count}. {title}, {author}, {date}")
-        print()
+        # Print by title.
+        elif sort_by == 1:
+            print(f"{title}, {author}, {date}")
 
-def add_book(rows):
+        # Print by date.
+        elif sort_by == 3:
+            print(f"{date}, {title}, {author}")
+        
+        # Print by author.
+        elif sort_by == 2:
+            print(f"{author}, {title}, {date}")
+
+def get_choice(books_list, rows):
+    choice = -1
+
+    while choice != 4:
+        # Print menu.
+        print_main_menu()
+        try:
+            # Get user choice from menu.
+            print()
+            choice = int(input("Enter a menu item: "))
+            # Add a book to the list.
+            if choice == 1:
+                books_list = add_book(books_list, rows)
+            # Remove a book from the list.
+            elif choice == 2:
+                remove_book(books_list)
+            # Display the books list.
+            elif choice == 3:
+                # Get user input from menu and sort by display choice.
+                sort_books(books_list)      
+            # End program
+            elif choice == 4:
+                break
+            else:
+                raise ValueError
+        except ValueError as val_err:
+            print(f"Please enter a number between 1 and 4. {val_err}")
+
+def add_book(books_list, rows):
     """
-    Asks user for title and author of the book they read and enters it into "books.csv"
-    Parameters:
-        books_dict
-    Returns:
-        new_dict
+    returns:
+        new_books_list: updated list, makes program reread file.
     """
+    new_books_list = books_list
     confirm = "n"
     while confirm == "n":
         print()
@@ -172,67 +118,140 @@ def add_book(rows):
         author = input("Enter the author of the book: ")
         print()
 
-        confirm = input(f"Are you sure you want to add {title} by {author} y/n? ")
+        confirm = input(f"Are you sure you want to add {title} by {author} (y/n)? ")
         if confirm == "y":
             date = datetime.now()
             with open("books.csv", "at") as books_file:
-                print(f"{rows},{title},{author.title()},{date: %Y-%m-%d %I:%M:%S}", file=books_file)
+                print(f"{rows},{title},{author.title()},{date:%Y-%m-%d %I:%M:%S}", file=books_file)
+            new_books_list = make_list("books.csv")
         elif confirm == "n":
             print("Oops!! Let's try again :)")
-    print(f"{title}, {author.title()}, {date: %Y-%m-%d %I:%M:%S} has been added to the list :)")
-    new_dict = read_dict("books.csv", KEY_COLUMN_INDEX)
-    return new_dict
+    print(f"{title}, {author.title()}, {date:%Y-%m-%d %I:%M:%S} has been added to the list :)")
+    return new_books_list
 
-def remove_book(books_dict):
+def remove_book(books_list):
+    ####### how to handle if they enter in multiple numbers?
+    ####### fix try blocks?
+
+    # elif len(remove_key) != 1:
+    #     good_input = False
+    #     print("Too many characters. Please try again.")
+
+    # Print list for user to see.
+    print_list(books_list, 0)
+
+    good_input = False
+    # books_dict_length = len(books_dict)
+    while good_input == False:
+        try:
+            print("Enter -1 to return to main menu.")
+            
+            # Ask for number they want to remove.
+            remove_index = int(input("Which book do you want to remove? "))
+
+            # Check if number is negative (ignoring the -1 to return to main menu). 
+            if remove_index < -1:
+                raise ValueError
+
+            # Check if number is greater than the length of the books list. 
+            elif remove_index > len(books_list):
+                raise ValueError
+
+            # Return to main menu if they enter -1.
+            elif remove_index == -1:
+                break
+            
+            # If key is valid, remove that index from the list.
+            else:
+                books_list.remove(remove_index)
+                print_list(books_list)
+                good_input = True
+
+        ###### How to handle letters separately?
+        # except TypeError as type_err:
+        #     print(f"Please enter a number. {type_err}")
+        #     print()
+        except ValueError as val_err:
+            print(f"That number is not in the list. Please try again. {val_err}")
+            print()
+
+def find_author(book):
     """
-    Removes book from list and fixes keys to be in order again. 
-    Parameter:
-        books_dict: dictionary to remove something from
+    Finds author's last name.
+    Parameters:
+        books_list: list of books in format "Book Number, Title, Author, Date Entered"
     Returns:
-        fixed_dict
+        last_name: author's last name
     """
-    # Print dictionary for user to see.
-    print_dict(books_dict)
-
-    # Ask for number they want to remove.
-        ## try block here
-            ## within length of the list
-            ## number
-            ## above 0
-    remove_key = input("Which book do you want to remove (ex: 1)? ")
-    
-    # Remove that item from the list.
-    del books_dict[remove_key]
-    print_dict(books_dict)
-
-    # # Fix key values so they are in order again
-    # fixed_dict = fix_keys(books_dict)
-    
-    # # Delete old file
-    # delete_file("books.csv")
-    
-    # # Make new file from fixed dictionary
-    # make_new_file("books.csv", fixed_dict)
-
-def fix_keys(new_dict):
+    last_name = "error"
+    author = book[2]
+    author = author.split()
+    # author_name_list = author.strip()
+    last_name = author[-1]
+    return last_name  
+   
+######
+def sort_books(books_list):
     """
-    
+    User sees:
+    Display by...
+        1. Title
+        2. Author
+        3. Date entered
+        4. Return to main menu
+    Parameters:   
     """
-    count = 0
-    fixed_dict = {}
-    for value in new_dict.values():
-        count += 1
-        fixed_dict[count] = value
-    return fixed_dict
+    display_choice = 0
+    while display_choice != 4:
+        # Print display menu
+        print_display_menu()
 
-def delete_file(filename):
-    os.remove(filename)
+        # Get display choice.
+        display_choice = int(input("Enter a display option: "))
 
-def make_new_file(filename, fixed_dict):
-    with open(filename) as books_file:
-        print("Key, Title, Author, Time Entered")
-        for key, values in fixed_dict.items():
-            print(f"{key}, {values}")
+        # Sort by title.
+        ###### PROBLEM ######
+            ###### TypeError: 'int' object is not subscriptable ######
+        if display_choice == 1:
+            sorted_list = sorted(books_list, key=lambda books_list:books_list[TITLE_INDEX][4:] if books_list[TITLE_INDEX][:3] == "The" else books_list[TITLE_INDEX])
+            print_list(sorted_list, display_choice)
+
+        # Sort by author.
+        elif display_choice == 2:
+            # last_name = find_author(books_list)
+            sorted_list = sorted(books_list, key=find_author)
+            print_list(sorted_list, display_choice)
+
+        # Sort by date entered.
+        elif display_choice == 3:
+            sorted_list = sorted(books_list, key=lambda books_list:books_list[DATE_ENTERED_INDEX])
+            print_list(sorted_list, display_choice)
+
+        # Return to main menu.
+        elif display_choice == 4:
+            return
+
+def count_category(books_list, category):
+    """
+    Counts number of books under certain category given by user (ex: author) are in the list.
+    Ex: user types in author, then the author they want to search for. Function returns the number of 
+    """
+    if category.lower == "author":
+        search_author = input("Enter the author to search for: ")
+    pass
+
+def count_books_read(books_list):
+    """
+    Calculates number of books read.
+    Parameter:
+        books_list: list of books
+    Return:
+        books_read: number of books read
+    """
+    books_read = 0
+    for _ in books_list:
+        books_read += 1
+    return books_read + 1
 
 if __name__ == "__main__":
     main()
