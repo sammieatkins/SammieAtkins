@@ -9,8 +9,6 @@ AUTHOR_INDEX = 2
 DATE_ENTERED_INDEX = 3
 
 ###### write doc strings!!
-###### how to update the books list after they add a book? - they should be able to print it and have an updated number of books read
-###### remove doesn't work :(
 ###### test_count_books_read()
 
 def main():   
@@ -259,7 +257,6 @@ def count_category(books_list, category):
         search_author = input("Enter the author to search for: ")
     pass
 
-###### returning 2 books?
 def count_books_read(books_list):
     """
     Calculates number of books read.
@@ -269,11 +266,9 @@ def count_books_read(books_list):
         books_read: number of books read
     """
     books_read = 0
-    for _ in books_list:
+    for _ in books_list[0]:
         books_read += 1
     return books_read
-
-
 
 if __name__ == "__main__":
     main()
