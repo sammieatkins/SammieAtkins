@@ -8,8 +8,6 @@ TITLE_INDEX = 1
 AUTHOR_INDEX = 2
 DATE_ENTERED_INDEX = 3
 
-###### write doc strings!!
-
 def main():   
     get_choice()
     
